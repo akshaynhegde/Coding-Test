@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CTDocument" representedClassName="CTDocument" syncable="YES">
+        <attribute name="createdTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="modifiedTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="feed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CTDocumentFeed" inverseName="documents" inverseEntity="CTDocumentFeed" syncable="YES"/>
+    </entity>
+    <entity name="CTDocumentFeed" representedClassName="CTDocumentFeed" syncable="YES">
+        <attribute name="count" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="documents" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CTDocument" inverseName="feed" inverseEntity="CTDocument" syncable="YES"/>
+    </entity>
+    <entity name="CTDraftDocument" representedClassName="CTDraftDocument" parentEntity="CTDocument" syncable="YES"/>
+    <entity name="CTOriginalDocument" representedClassName="CTOriginalDocument" parentEntity="CTDocument" syncable="YES"/>
+    <entity name="CTSignedDocument" representedClassName="CTSignedDocument" parentEntity="CTDocument" syncable="YES"/>
+    <elements>
+        <element name="CTDocument" positionX="-10622" positionY="-9738" width="128" height="118"/>
+        <element name="CTOriginalDocument" positionX="-10451" positionY="-9565" width="128" height="43"/>
+        <element name="CTSignedDocument" positionX="-10809" positionY="-9556" width="128" height="43"/>
+        <element name="CTDraftDocument" positionX="-10622" positionY="-9520" width="128" height="43"/>
+        <element name="CTDocumentFeed" positionX="-10910" positionY="-9855" width="128" height="73"/>
+    </elements>
 </model>

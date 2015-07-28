@@ -16,6 +16,11 @@
 		BA31EC211B67EA08007DEC19 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA31EC201B67EA08007DEC19 /* Images.xcassets */; };
 		BA31EC241B67EA08007DEC19 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA31EC221B67EA08007DEC19 /* LaunchScreen.xib */; };
 		BA31EC301B67EA08007DEC19 /* CodingTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC2F1B67EA08007DEC19 /* CodingTestTests.m */; };
+		BA31EC4B1B680CD5007DEC19 /* CTSignedDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC4A1B680CD5007DEC19 /* CTSignedDocument.m */; };
+		BA31EC4E1B680CD6007DEC19 /* CTDraftDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC4D1B680CD6007DEC19 /* CTDraftDocument.m */; };
+		BA31EC511B680CD6007DEC19 /* CTDocumentFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC501B680CD6007DEC19 /* CTDocumentFeed.m */; };
+		BA31EC541B680CD6007DEC19 /* CTOriginalDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC531B680CD6007DEC19 /* CTOriginalDocument.m */; };
+		BA31EC571B680CD6007DEC19 /* CTDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC561B680CD6007DEC19 /* CTDocument.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +51,16 @@
 		BA31EC291B67EA08007DEC19 /* CodingTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodingTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA31EC2E1B67EA08007DEC19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA31EC2F1B67EA08007DEC19 /* CodingTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodingTestTests.m; sourceTree = "<group>"; };
+		BA31EC491B680CD5007DEC19 /* CTSignedDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTSignedDocument.h; path = "Core Data/CTSignedDocument.h"; sourceTree = "<group>"; };
+		BA31EC4A1B680CD5007DEC19 /* CTSignedDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTSignedDocument.m; path = "Core Data/CTSignedDocument.m"; sourceTree = "<group>"; };
+		BA31EC4C1B680CD6007DEC19 /* CTDraftDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDraftDocument.h; path = "Core Data/CTDraftDocument.h"; sourceTree = "<group>"; };
+		BA31EC4D1B680CD6007DEC19 /* CTDraftDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDraftDocument.m; path = "Core Data/CTDraftDocument.m"; sourceTree = "<group>"; };
+		BA31EC4F1B680CD6007DEC19 /* CTDocumentFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocumentFeed.h; path = "Core Data/CTDocumentFeed.h"; sourceTree = "<group>"; };
+		BA31EC501B680CD6007DEC19 /* CTDocumentFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocumentFeed.m; path = "Core Data/CTDocumentFeed.m"; sourceTree = "<group>"; };
+		BA31EC521B680CD6007DEC19 /* CTOriginalDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTOriginalDocument.h; path = "Core Data/CTOriginalDocument.h"; sourceTree = "<group>"; };
+		BA31EC531B680CD6007DEC19 /* CTOriginalDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTOriginalDocument.m; path = "Core Data/CTOriginalDocument.m"; sourceTree = "<group>"; };
+		BA31EC551B680CD6007DEC19 /* CTDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocument.h; path = "Core Data/CTDocument.h"; sourceTree = "<group>"; };
+		BA31EC561B680CD6007DEC19 /* CTDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocument.m; path = "Core Data/CTDocument.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +113,7 @@
 		BA31EC0F1B67EA08007DEC19 /* CodingTest */ = {
 			isa = PBXGroup;
 			children = (
+				BA31EC391B680C5B007DEC19 /* Core Data */,
 				BA31EC141B67EA08007DEC19 /* AppDelegate.h */,
 				BA31EC151B67EA08007DEC19 /* AppDelegate.m */,
 				BA31EC1A1B67EA08007DEC19 /* ViewController.h */,
@@ -135,6 +151,23 @@
 				BA31EC2E1B67EA08007DEC19 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BA31EC391B680C5B007DEC19 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				BA31EC551B680CD6007DEC19 /* CTDocument.h */,
+				BA31EC561B680CD6007DEC19 /* CTDocument.m */,
+				BA31EC521B680CD6007DEC19 /* CTOriginalDocument.h */,
+				BA31EC531B680CD6007DEC19 /* CTOriginalDocument.m */,
+				BA31EC4F1B680CD6007DEC19 /* CTDocumentFeed.h */,
+				BA31EC501B680CD6007DEC19 /* CTDocumentFeed.m */,
+				BA31EC4C1B680CD6007DEC19 /* CTDraftDocument.h */,
+				BA31EC4D1B680CD6007DEC19 /* CTDraftDocument.m */,
+				BA31EC491B680CD5007DEC19 /* CTSignedDocument.h */,
+				BA31EC4A1B680CD5007DEC19 /* CTSignedDocument.m */,
+			);
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 		C834118A4D2CAB9E843A143B /* Pods */ = {
@@ -281,9 +314,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA31EC571B680CD6007DEC19 /* CTDocument.m in Sources */,
 				BA31EC161B67EA08007DEC19 /* AppDelegate.m in Sources */,
+				BA31EC4B1B680CD5007DEC19 /* CTSignedDocument.m in Sources */,
+				BA31EC4E1B680CD6007DEC19 /* CTDraftDocument.m in Sources */,
 				BA31EC191B67EA08007DEC19 /* CodingTest.xcdatamodeld in Sources */,
+				BA31EC541B680CD6007DEC19 /* CTOriginalDocument.m in Sources */,
 				BA31EC1C1B67EA08007DEC19 /* ViewController.m in Sources */,
+				BA31EC511B680CD6007DEC19 /* CTDocumentFeed.m in Sources */,
 				BA31EC131B67EA08007DEC19 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
