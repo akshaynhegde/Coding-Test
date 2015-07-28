@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D2ED8472E74E04A715515CE /* libPods-CodingTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD42462C5F281A69FC812728 /* libPods-CodingTest.a */; };
 		BA31EC131B67EA08007DEC19 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC121B67EA08007DEC19 /* main.m */; };
 		BA31EC161B67EA08007DEC19 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC151B67EA08007DEC19 /* AppDelegate.m */; };
 		BA31EC191B67EA08007DEC19 /* CodingTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC171B67EA08007DEC19 /* CodingTest.xcdatamodeld */; };
@@ -28,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E68535B3003AE72B5AD8205 /* Pods-CodingTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodingTest/Pods-CodingTest.debug.xcconfig"; sourceTree = "<group>"; };
+		7BF345B265F27CFDF45A2BC5 /* Pods-CodingTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodingTest/Pods-CodingTest.release.xcconfig"; sourceTree = "<group>"; };
+		AD42462C5F281A69FC812728 /* libPods-CodingTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CodingTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA31EC0D1B67EA08007DEC19 /* CodingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA31EC111B67EA08007DEC19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA31EC121B67EA08007DEC19 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -49,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D2ED8472E74E04A715515CE /* libPods-CodingTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +67,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EEBFE6BCE104A70C138B86E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD42462C5F281A69FC812728 /* libPods-CodingTest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BA31EC041B67EA08007DEC19 = {
 			isa = PBXGroup;
 			children = (
 				BA31EC0F1B67EA08007DEC19 /* CodingTest */,
 				BA31EC2C1B67EA08007DEC19 /* CodingTestTests */,
 				BA31EC0E1B67EA08007DEC19 /* Products */,
+				C834118A4D2CAB9E843A143B /* Pods */,
+				0EEBFE6BCE104A70C138B86E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +137,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C834118A4D2CAB9E843A143B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1E68535B3003AE72B5AD8205 /* Pods-CodingTest.debug.xcconfig */,
+				7BF345B265F27CFDF45A2BC5 /* Pods-CodingTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,9 +153,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA31EC331B67EA08007DEC19 /* Build configuration list for PBXNativeTarget "CodingTest" */;
 			buildPhases = (
+				BAF0C416832870F0DBB808B9 /* Check Pods Manifest.lock */,
 				BA31EC091B67EA08007DEC19 /* Sources */,
 				BA31EC0A1B67EA08007DEC19 /* Frameworks */,
 				BA31EC0B1B67EA08007DEC19 /* Resources */,
+				84E92F5E832B7289BA58172B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -216,6 +242,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		84E92F5E832B7289BA58172B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CodingTest/Pods-CodingTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAF0C416832870F0DBB808B9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BA31EC091B67EA08007DEC19 /* Sources */ = {
@@ -351,6 +410,7 @@
 		};
 		BA31EC341B67EA08007DEC19 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E68535B3003AE72B5AD8205 /* Pods-CodingTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CodingTest/Info.plist;
@@ -362,6 +422,7 @@
 		};
 		BA31EC351B67EA08007DEC19 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BF345B265F27CFDF45A2BC5 /* Pods-CodingTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CodingTest/Info.plist;
@@ -424,6 +485,7 @@
 				BA31EC351B67EA08007DEC19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BA31EC361B67EA08007DEC19 /* Build configuration list for PBXNativeTarget "CodingTestTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +494,7 @@
 				BA31EC381B67EA08007DEC19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
