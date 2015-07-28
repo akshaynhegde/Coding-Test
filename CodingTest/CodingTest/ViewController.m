@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "CTHTTPDocumentsSessionInteractor.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) CTHTTPDocumentsSessionInteractor *documentsSessionInteractor;
+@property (nonatomic, weak) NSURLSessionTask *documentFetchTask;
 
 @end
 
@@ -16,12 +20,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [self fetchDocuments];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -
+#pragma mark - Fetching
+
+- (void) fetchDocuments
+{
+    if (!_documentsSessionInteractor) {
+        _documentsSessionInteractor = [[CTHTTPDocumentsSessionInteractor alloc] init];
+    }
+    
+     _documentFetchTask = [_documentsSessionInteractor fetchDocumentsWithCompletion:^(NSURLSessionTask *task, id response) {
+         NSLog(@"");
+    } failure:^(NSURLSessionTask *task, NSError *error) {
+        NSLog(@"");
+    }];
+}
+
+
+#pragma mark -
+#pragma mark - Dealloc
+
+- (void) dealloc
+{
+    [_documentFetchTask cancel];
 }
 
 @end
