@@ -21,6 +21,10 @@
 		BA31EC511B680CD6007DEC19 /* CTDocumentFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC501B680CD6007DEC19 /* CTDocumentFeed.m */; };
 		BA31EC541B680CD6007DEC19 /* CTOriginalDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC531B680CD6007DEC19 /* CTOriginalDocument.m */; };
 		BA31EC571B680CD6007DEC19 /* CTDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC561B680CD6007DEC19 /* CTDocument.m */; };
+		BA31EC5F1B680DE6007DEC19 /* CTHTTPSessionInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC5A1B680DE6007DEC19 /* CTHTTPSessionInteractor.m */; };
+		BA31EC601B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC5C1B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.m */; };
+		BA31EC611B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC5E1B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m */; };
+		BA31EC641B681B1B007DEC19 /* NSData+stringConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC631B681B1B007DEC19 /* NSData+stringConversion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,14 @@
 		BA31EC531B680CD6007DEC19 /* CTOriginalDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTOriginalDocument.m; path = "Core Data/CTOriginalDocument.m"; sourceTree = "<group>"; };
 		BA31EC551B680CD6007DEC19 /* CTDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocument.h; path = "Core Data/CTDocument.h"; sourceTree = "<group>"; };
 		BA31EC561B680CD6007DEC19 /* CTDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocument.m; path = "Core Data/CTDocument.m"; sourceTree = "<group>"; };
+		BA31EC591B680DE6007DEC19 /* CTHTTPSessionInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTHTTPSessionInteractor.h; path = Networking/CTHTTPSessionInteractor.h; sourceTree = "<group>"; };
+		BA31EC5A1B680DE6007DEC19 /* CTHTTPSessionInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTHTTPSessionInteractor.m; path = Networking/CTHTTPSessionInteractor.m; sourceTree = "<group>"; };
+		BA31EC5B1B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTHTTPDocumentsSessionInteractor.h; path = Networking/CTHTTPDocumentsSessionInteractor.h; sourceTree = "<group>"; };
+		BA31EC5C1B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTHTTPDocumentsSessionInteractor.m; path = Networking/CTHTTPDocumentsSessionInteractor.m; sourceTree = "<group>"; };
+		BA31EC5D1B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTHTTPDocumentsSessionManager.h; path = Networking/CTHTTPDocumentsSessionManager.h; sourceTree = "<group>"; };
+		BA31EC5E1B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTHTTPDocumentsSessionManager.m; path = Networking/CTHTTPDocumentsSessionManager.m; sourceTree = "<group>"; };
+		BA31EC621B681B1B007DEC19 /* NSData+stringConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+stringConversion.h"; path = "Networking/NSData+stringConversion.h"; sourceTree = "<group>"; };
+		BA31EC631B681B1B007DEC19 /* NSData+stringConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+stringConversion.m"; path = "Networking/NSData+stringConversion.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +125,7 @@
 		BA31EC0F1B67EA08007DEC19 /* CodingTest */ = {
 			isa = PBXGroup;
 			children = (
+				BA31EC581B680D2C007DEC19 /* Networking */,
 				BA31EC391B680C5B007DEC19 /* Core Data */,
 				BA31EC141B67EA08007DEC19 /* AppDelegate.h */,
 				BA31EC151B67EA08007DEC19 /* AppDelegate.m */,
@@ -168,6 +181,21 @@
 				BA31EC4A1B680CD5007DEC19 /* CTSignedDocument.m */,
 			);
 			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		BA31EC581B680D2C007DEC19 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BA31EC591B680DE6007DEC19 /* CTHTTPSessionInteractor.h */,
+				BA31EC5A1B680DE6007DEC19 /* CTHTTPSessionInteractor.m */,
+				BA31EC5B1B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.h */,
+				BA31EC5C1B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.m */,
+				BA31EC5D1B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.h */,
+				BA31EC5E1B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m */,
+				BA31EC621B681B1B007DEC19 /* NSData+stringConversion.h */,
+				BA31EC631B681B1B007DEC19 /* NSData+stringConversion.m */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 		C834118A4D2CAB9E843A143B /* Pods */ = {
@@ -316,11 +344,15 @@
 			files = (
 				BA31EC571B680CD6007DEC19 /* CTDocument.m in Sources */,
 				BA31EC161B67EA08007DEC19 /* AppDelegate.m in Sources */,
+				BA31EC611B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m in Sources */,
+				BA31EC601B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.m in Sources */,
 				BA31EC4B1B680CD5007DEC19 /* CTSignedDocument.m in Sources */,
 				BA31EC4E1B680CD6007DEC19 /* CTDraftDocument.m in Sources */,
 				BA31EC191B67EA08007DEC19 /* CodingTest.xcdatamodeld in Sources */,
 				BA31EC541B680CD6007DEC19 /* CTOriginalDocument.m in Sources */,
 				BA31EC1C1B67EA08007DEC19 /* ViewController.m in Sources */,
+				BA31EC5F1B680DE6007DEC19 /* CTHTTPSessionInteractor.m in Sources */,
+				BA31EC641B681B1B007DEC19 /* NSData+stringConversion.m in Sources */,
 				BA31EC511B680CD6007DEC19 /* CTDocumentFeed.m in Sources */,
 				BA31EC131B67EA08007DEC19 /* main.m in Sources */,
 			);
