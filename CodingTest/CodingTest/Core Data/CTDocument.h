@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class CTDocumentFeed;
+@class CTDocuments;
 
 @interface CTDocument : NSManagedObject
 
 @property (nonatomic, retain) NSDate * createdTime;
-@property (nonatomic, retain) NSDate * modifiedTime;
 @property (nonatomic, retain) NSNumber * identifier;
+@property (nonatomic, retain) NSDate * modifiedDate;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) CTDocumentFeed *feed;
+@property (nonatomic, retain) CTDocuments *parentContainer;
 
 @end

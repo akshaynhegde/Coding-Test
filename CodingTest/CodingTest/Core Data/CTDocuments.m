@@ -1,17 +1,20 @@
 //
-//  CTDraftDocument.h
+//  CTDocuments.m
 //  CodingTest
 //
 //  Created by Akshay on 29/07/15.
 //  Copyright (c) 2015 Akshay Hegde. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import "CTDocuments.h"
 #import "CTDocument.h"
+#import "CTDocumentFeed.h"
 
 
-@interface CTDraftDocument : CTDocument
+@implementation CTDocuments
 
+@dynamic count;
+@dynamic feed;
+@dynamic files;
 
 @end

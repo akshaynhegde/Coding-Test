@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class CTDocument;
+@class CTDocuments;
 
 @interface CTDocumentFeed : NSManagedObject
 
@@ -19,8 +19,8 @@
 
 @interface CTDocumentFeed (CoreDataGeneratedAccessors)
 
-- (void)addDocumentsObject:(CTDocument *)value;
-- (void)removeDocumentsObject:(CTDocument *)value;
+- (void)addDocumentsObject:(CTDocuments *)value;
+- (void)removeDocumentsObject:(CTDocuments *)value;
 - (void)addDocuments:(NSSet *)values;
 - (void)removeDocuments:(NSSet *)values;
 

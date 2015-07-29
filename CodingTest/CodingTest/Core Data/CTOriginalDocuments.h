@@ -1,5 +1,5 @@
 //
-//  CTOriginalDocument.h
+//  CTOriginalDocuments.h
 //  CodingTest
 //
 //  Created by Akshay on 29/07/15.
@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "CTDocument.h"
+#import "CTDocuments.h"
 
 
-@interface CTOriginalDocument : CTDocument
+@interface CTOriginalDocuments : CTDocuments
 
 
 @end

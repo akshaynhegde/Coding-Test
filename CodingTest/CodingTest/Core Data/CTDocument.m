@@ -7,15 +7,15 @@
 //
 
 #import "CTDocument.h"
-#import "CTDocumentFeed.h"
+#import "CTDocuments.h"
 
 
 @implementation CTDocument
 
 @dynamic createdTime;
-@dynamic modifiedTime;
 @dynamic identifier;
+@dynamic modifiedDate;
 @dynamic name;
-@dynamic feed;
+@dynamic parentContainer;
 
 @end

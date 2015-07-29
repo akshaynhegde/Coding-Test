@@ -15,16 +15,17 @@
 		BA31EC211B67EA08007DEC19 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA31EC201B67EA08007DEC19 /* Images.xcassets */; };
 		BA31EC241B67EA08007DEC19 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA31EC221B67EA08007DEC19 /* LaunchScreen.xib */; };
 		BA31EC301B67EA08007DEC19 /* CodingTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC2F1B67EA08007DEC19 /* CodingTestTests.m */; };
-		BA31EC4B1B680CD5007DEC19 /* CTSignedDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC4A1B680CD5007DEC19 /* CTSignedDocument.m */; };
-		BA31EC4E1B680CD6007DEC19 /* CTDraftDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC4D1B680CD6007DEC19 /* CTDraftDocument.m */; };
-		BA31EC511B680CD6007DEC19 /* CTDocumentFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC501B680CD6007DEC19 /* CTDocumentFeed.m */; };
-		BA31EC541B680CD6007DEC19 /* CTOriginalDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC531B680CD6007DEC19 /* CTOriginalDocument.m */; };
-		BA31EC571B680CD6007DEC19 /* CTDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC561B680CD6007DEC19 /* CTDocument.m */; };
 		BA31EC5F1B680DE6007DEC19 /* CTHTTPSessionInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC5A1B680DE6007DEC19 /* CTHTTPSessionInteractor.m */; };
 		BA31EC601B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC5C1B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.m */; };
 		BA31EC611B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC5E1B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m */; };
 		BA31EC641B681B1B007DEC19 /* NSData+stringConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC631B681B1B007DEC19 /* NSData+stringConversion.m */; };
 		BA31EC681B686C13007DEC19 /* CTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC671B686C13007DEC19 /* CTLoginViewController.m */; };
+		BACF571B1B693D6900A2AE12 /* CTOriginalDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF571A1B693D6900A2AE12 /* CTOriginalDocuments.m */; };
+		BACF571E1B693D6A00A2AE12 /* CTDocumentFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF571D1B693D6A00A2AE12 /* CTDocumentFeed.m */; };
+		BACF57211B693D6A00A2AE12 /* CTDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57201B693D6A00A2AE12 /* CTDocuments.m */; };
+		BACF57241B693D6A00A2AE12 /* CTDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57231B693D6A00A2AE12 /* CTDocument.m */; };
+		BACF57271B693D6A00A2AE12 /* CTDraftDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57261B693D6A00A2AE12 /* CTDraftDocuments.m */; };
+		BACF572A1B693D6A00A2AE12 /* CTSignedDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57291B693D6A00A2AE12 /* CTSignedDocuments.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,16 +54,6 @@
 		BA31EC291B67EA08007DEC19 /* CodingTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodingTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA31EC2E1B67EA08007DEC19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA31EC2F1B67EA08007DEC19 /* CodingTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodingTestTests.m; sourceTree = "<group>"; };
-		BA31EC491B680CD5007DEC19 /* CTSignedDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTSignedDocument.h; path = "Core Data/CTSignedDocument.h"; sourceTree = "<group>"; };
-		BA31EC4A1B680CD5007DEC19 /* CTSignedDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTSignedDocument.m; path = "Core Data/CTSignedDocument.m"; sourceTree = "<group>"; };
-		BA31EC4C1B680CD6007DEC19 /* CTDraftDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDraftDocument.h; path = "Core Data/CTDraftDocument.h"; sourceTree = "<group>"; };
-		BA31EC4D1B680CD6007DEC19 /* CTDraftDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDraftDocument.m; path = "Core Data/CTDraftDocument.m"; sourceTree = "<group>"; };
-		BA31EC4F1B680CD6007DEC19 /* CTDocumentFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocumentFeed.h; path = "Core Data/CTDocumentFeed.h"; sourceTree = "<group>"; };
-		BA31EC501B680CD6007DEC19 /* CTDocumentFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocumentFeed.m; path = "Core Data/CTDocumentFeed.m"; sourceTree = "<group>"; };
-		BA31EC521B680CD6007DEC19 /* CTOriginalDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTOriginalDocument.h; path = "Core Data/CTOriginalDocument.h"; sourceTree = "<group>"; };
-		BA31EC531B680CD6007DEC19 /* CTOriginalDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTOriginalDocument.m; path = "Core Data/CTOriginalDocument.m"; sourceTree = "<group>"; };
-		BA31EC551B680CD6007DEC19 /* CTDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocument.h; path = "Core Data/CTDocument.h"; sourceTree = "<group>"; };
-		BA31EC561B680CD6007DEC19 /* CTDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocument.m; path = "Core Data/CTDocument.m"; sourceTree = "<group>"; };
 		BA31EC591B680DE6007DEC19 /* CTHTTPSessionInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTHTTPSessionInteractor.h; path = Networking/CTHTTPSessionInteractor.h; sourceTree = "<group>"; };
 		BA31EC5A1B680DE6007DEC19 /* CTHTTPSessionInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTHTTPSessionInteractor.m; path = Networking/CTHTTPSessionInteractor.m; sourceTree = "<group>"; };
 		BA31EC5B1B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTHTTPDocumentsSessionInteractor.h; path = Networking/CTHTTPDocumentsSessionInteractor.h; sourceTree = "<group>"; };
@@ -73,6 +64,18 @@
 		BA31EC631B681B1B007DEC19 /* NSData+stringConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+stringConversion.m"; path = "Networking/NSData+stringConversion.m"; sourceTree = "<group>"; };
 		BA31EC661B686C13007DEC19 /* CTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTLoginViewController.h; path = Login/CTLoginViewController.h; sourceTree = "<group>"; };
 		BA31EC671B686C13007DEC19 /* CTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTLoginViewController.m; path = Login/CTLoginViewController.m; sourceTree = "<group>"; };
+		BACF57191B693D6900A2AE12 /* CTOriginalDocuments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTOriginalDocuments.h; path = "Core Data/CTOriginalDocuments.h"; sourceTree = "<group>"; };
+		BACF571A1B693D6900A2AE12 /* CTOriginalDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTOriginalDocuments.m; path = "Core Data/CTOriginalDocuments.m"; sourceTree = "<group>"; };
+		BACF571C1B693D6A00A2AE12 /* CTDocumentFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocumentFeed.h; path = "Core Data/CTDocumentFeed.h"; sourceTree = "<group>"; };
+		BACF571D1B693D6A00A2AE12 /* CTDocumentFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocumentFeed.m; path = "Core Data/CTDocumentFeed.m"; sourceTree = "<group>"; };
+		BACF571F1B693D6A00A2AE12 /* CTDocuments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocuments.h; path = "Core Data/CTDocuments.h"; sourceTree = "<group>"; };
+		BACF57201B693D6A00A2AE12 /* CTDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocuments.m; path = "Core Data/CTDocuments.m"; sourceTree = "<group>"; };
+		BACF57221B693D6A00A2AE12 /* CTDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocument.h; path = "Core Data/CTDocument.h"; sourceTree = "<group>"; };
+		BACF57231B693D6A00A2AE12 /* CTDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocument.m; path = "Core Data/CTDocument.m"; sourceTree = "<group>"; };
+		BACF57251B693D6A00A2AE12 /* CTDraftDocuments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDraftDocuments.h; path = "Core Data/CTDraftDocuments.h"; sourceTree = "<group>"; };
+		BACF57261B693D6A00A2AE12 /* CTDraftDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDraftDocuments.m; path = "Core Data/CTDraftDocuments.m"; sourceTree = "<group>"; };
+		BACF57281B693D6A00A2AE12 /* CTSignedDocuments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTSignedDocuments.h; path = "Core Data/CTSignedDocuments.h"; sourceTree = "<group>"; };
+		BACF57291B693D6A00A2AE12 /* CTSignedDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTSignedDocuments.m; path = "Core Data/CTSignedDocuments.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,16 +171,18 @@
 		BA31EC391B680C5B007DEC19 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				BA31EC551B680CD6007DEC19 /* CTDocument.h */,
-				BA31EC561B680CD6007DEC19 /* CTDocument.m */,
-				BA31EC521B680CD6007DEC19 /* CTOriginalDocument.h */,
-				BA31EC531B680CD6007DEC19 /* CTOriginalDocument.m */,
-				BA31EC4F1B680CD6007DEC19 /* CTDocumentFeed.h */,
-				BA31EC501B680CD6007DEC19 /* CTDocumentFeed.m */,
-				BA31EC4C1B680CD6007DEC19 /* CTDraftDocument.h */,
-				BA31EC4D1B680CD6007DEC19 /* CTDraftDocument.m */,
-				BA31EC491B680CD5007DEC19 /* CTSignedDocument.h */,
-				BA31EC4A1B680CD5007DEC19 /* CTSignedDocument.m */,
+				BACF57281B693D6A00A2AE12 /* CTSignedDocuments.h */,
+				BACF57291B693D6A00A2AE12 /* CTSignedDocuments.m */,
+				BACF57251B693D6A00A2AE12 /* CTDraftDocuments.h */,
+				BACF57261B693D6A00A2AE12 /* CTDraftDocuments.m */,
+				BACF57221B693D6A00A2AE12 /* CTDocument.h */,
+				BACF57231B693D6A00A2AE12 /* CTDocument.m */,
+				BACF571F1B693D6A00A2AE12 /* CTDocuments.h */,
+				BACF57201B693D6A00A2AE12 /* CTDocuments.m */,
+				BACF571C1B693D6A00A2AE12 /* CTDocumentFeed.h */,
+				BACF571D1B693D6A00A2AE12 /* CTDocumentFeed.m */,
+				BACF57191B693D6900A2AE12 /* CTOriginalDocuments.h */,
+				BACF571A1B693D6900A2AE12 /* CTOriginalDocuments.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -350,18 +355,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA31EC571B680CD6007DEC19 /* CTDocument.m in Sources */,
+				BACF57211B693D6A00A2AE12 /* CTDocuments.m in Sources */,
+				BACF572A1B693D6A00A2AE12 /* CTSignedDocuments.m in Sources */,
 				BA31EC161B67EA08007DEC19 /* AppDelegate.m in Sources */,
+				BACF571B1B693D6900A2AE12 /* CTOriginalDocuments.m in Sources */,
 				BA31EC611B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m in Sources */,
+				BACF571E1B693D6A00A2AE12 /* CTDocumentFeed.m in Sources */,
 				BA31EC601B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.m in Sources */,
-				BA31EC4B1B680CD5007DEC19 /* CTSignedDocument.m in Sources */,
-				BA31EC4E1B680CD6007DEC19 /* CTDraftDocument.m in Sources */,
 				BA31EC191B67EA08007DEC19 /* CodingTest.xcdatamodeld in Sources */,
+				BACF57271B693D6A00A2AE12 /* CTDraftDocuments.m in Sources */,
 				BA31EC681B686C13007DEC19 /* CTLoginViewController.m in Sources */,
-				BA31EC541B680CD6007DEC19 /* CTOriginalDocument.m in Sources */,
 				BA31EC5F1B680DE6007DEC19 /* CTHTTPSessionInteractor.m in Sources */,
+				BACF57241B693D6A00A2AE12 /* CTDocument.m in Sources */,
 				BA31EC641B681B1B007DEC19 /* NSData+stringConversion.m in Sources */,
-				BA31EC511B680CD6007DEC19 /* CTDocumentFeed.m in Sources */,
 				BA31EC131B67EA08007DEC19 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
