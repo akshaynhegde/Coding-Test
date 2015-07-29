@@ -122,8 +122,73 @@
                     <view key="view" contentMode="scaleToFill" id="hIt-Nj-WPp">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FlU-kB-nlR">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9UJ-hY-PZ7">
+                                    <size key="itemSize" width="200" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CTDocumentCollectionViewCellID" id="LHp-6G-VeB" customClass="CTDocumentCollectionViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9Ex-6F-TqH">
+                                                    <rect key="frame" x="5" y="5" width="37" height="18"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtt-cR-SId">
+                                                    <rect key="frame" x="173" y="173" width="22" height="22"/>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="infoButtonTapped:" destination="LHp-6G-VeB" eventType="touchUpInside" id="FZv-sW-1K0"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9Ex-6F-TqH" secondAttribute="trailing" id="A5S-lh-vqE"/>
+                                            <constraint firstItem="dtt-cR-SId" firstAttribute="top" relation="greaterThanOrEqual" secondItem="9Ex-6F-TqH" secondAttribute="bottom" id="ADc-Yo-RUm"/>
+                                            <constraint firstItem="9Ex-6F-TqH" firstAttribute="top" secondItem="LHp-6G-VeB" secondAttribute="top" constant="5" id="cre-fw-wbV"/>
+                                            <constraint firstAttribute="bottom" secondItem="dtt-cR-SId" secondAttribute="bottom" constant="5" id="dnY-Na-LVe"/>
+                                            <constraint firstAttribute="trailing" secondItem="dtt-cR-SId" secondAttribute="trailing" constant="5" id="ltk-Oi-HgK"/>
+                                            <constraint firstItem="9Ex-6F-TqH" firstAttribute="leading" secondItem="LHp-6G-VeB" secondAttribute="leading" constant="5" id="qZ6-0m-ij0"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="infoButton" destination="dtt-cR-SId" id="Exb-w2-b2Q"/>
+                                            <outlet property="titleLabel" destination="9Ex-6F-TqH" id="sws-FS-J2G"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="eWS-Ya-EEX" id="veA-oa-aKD"/>
+                                    <outlet property="delegate" destination="eWS-Ya-EEX" id="ZiC-Ud-TEF"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="FlU-kB-nlR" secondAttribute="trailing" id="7X5-Vx-aaO"/>
+                            <constraint firstItem="Wzs-Sg-fUT" firstAttribute="top" secondItem="FlU-kB-nlR" secondAttribute="bottom" id="L0H-ZW-TrP"/>
+                            <constraint firstItem="FlU-kB-nlR" firstAttribute="leading" secondItem="hIt-Nj-WPp" secondAttribute="leading" id="Uy8-q2-zYc"/>
+                            <constraint firstItem="FlU-kB-nlR" firstAttribute="top" secondItem="hIt-Nj-WPp" secondAttribute="top" id="rVV-XA-0zk"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="FlU-kB-nlR" id="D5W-Rs-gnb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Eg-Nx-ZJB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

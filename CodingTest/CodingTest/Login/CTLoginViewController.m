@@ -7,10 +7,7 @@
 //
 
 #import "CTLoginViewController.h"
-
-#import "CTHTTPDocumentsSessionInteractor.h"
 #import <MagicalRecord/MagicalRecord.h>
-
 #import "CTDocumentCollectionViewController.h"
 
 @interface CTLoginViewController ()
@@ -27,8 +24,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginButtonTopSpace;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *userNameTopSpacing;
 
-@property (nonatomic, strong) CTHTTPDocumentsSessionInteractor *documentSessionInteractor;
-
 - (IBAction)loginButtonTapped:(UIButton *)sender;
 @end
 
@@ -40,14 +35,6 @@
      _infoLabel.text = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum";
     
      [self adjustContentSize];
-    
-    _documentSessionInteractor = [[CTHTTPDocumentsSessionInteractor alloc] init];
-    [_documentSessionInteractor fetchDocumentsAndSaveToDBWithCompletion:^(NSURLSessionTask *task, id response) {
-        NSLog(@"");
-    
-    } failure:^(NSURLSessionTask *task, NSError *error) {
-        NSLog(@"%@",error);
-    }];
 }
 
 - (void)didReceiveMemoryWarning {

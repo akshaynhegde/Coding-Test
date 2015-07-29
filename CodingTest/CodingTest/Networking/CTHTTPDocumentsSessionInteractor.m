@@ -149,10 +149,11 @@
     }];
     
     [saveOp setCompletionBlock:^{
-
-        if (completion) {
-            completion();
-        }
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            if (completion) {
+                completion();
+            }
+        }];
     }];
     
     [_operationQueue addOperation:saveOp];
