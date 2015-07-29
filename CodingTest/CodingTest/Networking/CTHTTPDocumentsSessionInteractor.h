@@ -10,6 +10,6 @@
 
 @interface CTHTTPDocumentsSessionInteractor : CTHTTPSessionInteractor
 
-- (NSURLSessionDataTask *) fetchDocumentsWithCompletion:(CTHTTPSessionInteractorSuccessBlock) success failure:(CTHTTPSessionInteractorFailureBlock) failure;
+- (NSURLSessionDataTask *) fetchDocumentsAndSaveToDBWithCompletion:(CTHTTPSessionInteractorSuccessBlock) success failure:(CTHTTPSessionInteractorFailureBlock) failure;
 
 @end
