@@ -7,7 +7,6 @@
 //
 
 #import "CTLoginViewController.h"
-#import <MagicalRecord/MagicalRecord.h>
 #import "CTDocumentCollectionViewController.h"
 
 @interface CTLoginViewController ()
