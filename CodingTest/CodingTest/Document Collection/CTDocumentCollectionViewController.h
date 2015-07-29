@@ -10,4 +10,6 @@
 
 @interface CTDocumentCollectionViewController : UIViewController
 
++ (CTDocumentCollectionViewController *) loadFromStoryBoard;
+
 @end
