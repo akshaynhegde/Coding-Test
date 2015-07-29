@@ -12,6 +12,7 @@
 #import "CTDocument.h"
 #import "CTHTTPDocumentsSessionInteractor.h"
 #import "CTDocumentCollectionViewCell.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 #define kCTDocumentCollectionCellID @"CTDocumentCollectionViewCellID"
 
@@ -47,16 +48,18 @@
     
     [self setUpFetchresultsController];
     
+    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeNone];
     __weak typeof(self) weakSelf = self;
     _documentSessionInteractor = [[CTHTTPDocumentsSessionInteractor alloc] init];
     [_documentSessionInteractor fetchDocumentsAndSaveToDBWithCompletion:^(NSURLSessionTask *task, id response) {
         
+        [SVProgressHUD dismiss];
         NSError *fetchError = nil;
         [weakSelf.fetchResultsController performFetch:&fetchError];
         [weakSelf.collectionView reloadData];
         
     } failure:^(NSURLSessionTask *task, NSError *error) {
-        NSLog(@"%@",error);
+        [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"%@",error.localizedDescription]];
     }];
 }
 
