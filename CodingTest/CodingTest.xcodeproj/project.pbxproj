@@ -11,7 +11,6 @@
 		BA31EC131B67EA08007DEC19 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC121B67EA08007DEC19 /* main.m */; };
 		BA31EC161B67EA08007DEC19 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC151B67EA08007DEC19 /* AppDelegate.m */; };
 		BA31EC191B67EA08007DEC19 /* CodingTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC171B67EA08007DEC19 /* CodingTest.xcdatamodeld */; };
-		BA31EC1C1B67EA08007DEC19 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC1B1B67EA08007DEC19 /* ViewController.m */; };
 		BA31EC1F1B67EA08007DEC19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA31EC1D1B67EA08007DEC19 /* Main.storyboard */; };
 		BA31EC211B67EA08007DEC19 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA31EC201B67EA08007DEC19 /* Images.xcassets */; };
 		BA31EC241B67EA08007DEC19 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA31EC221B67EA08007DEC19 /* LaunchScreen.xib */; };
@@ -25,6 +24,7 @@
 		BA31EC601B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC5C1B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.m */; };
 		BA31EC611B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC5E1B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m */; };
 		BA31EC641B681B1B007DEC19 /* NSData+stringConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC631B681B1B007DEC19 /* NSData+stringConversion.m */; };
+		BA31EC681B686C13007DEC19 /* CTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC671B686C13007DEC19 /* CTLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +47,6 @@
 		BA31EC141B67EA08007DEC19 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BA31EC151B67EA08007DEC19 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BA31EC181B67EA08007DEC19 /* CodingTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CodingTest.xcdatamodel; sourceTree = "<group>"; };
-		BA31EC1A1B67EA08007DEC19 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BA31EC1B1B67EA08007DEC19 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BA31EC1E1B67EA08007DEC19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA31EC201B67EA08007DEC19 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BA31EC231B67EA08007DEC19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -73,6 +71,8 @@
 		BA31EC5E1B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTHTTPDocumentsSessionManager.m; path = Networking/CTHTTPDocumentsSessionManager.m; sourceTree = "<group>"; };
 		BA31EC621B681B1B007DEC19 /* NSData+stringConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+stringConversion.h"; path = "Networking/NSData+stringConversion.h"; sourceTree = "<group>"; };
 		BA31EC631B681B1B007DEC19 /* NSData+stringConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+stringConversion.m"; path = "Networking/NSData+stringConversion.m"; sourceTree = "<group>"; };
+		BA31EC661B686C13007DEC19 /* CTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTLoginViewController.h; path = Login/CTLoginViewController.h; sourceTree = "<group>"; };
+		BA31EC671B686C13007DEC19 /* CTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTLoginViewController.m; path = Login/CTLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,12 +125,11 @@
 		BA31EC0F1B67EA08007DEC19 /* CodingTest */ = {
 			isa = PBXGroup;
 			children = (
+				BA31EC651B686BE6007DEC19 /* Login */,
 				BA31EC581B680D2C007DEC19 /* Networking */,
 				BA31EC391B680C5B007DEC19 /* Core Data */,
 				BA31EC141B67EA08007DEC19 /* AppDelegate.h */,
 				BA31EC151B67EA08007DEC19 /* AppDelegate.m */,
-				BA31EC1A1B67EA08007DEC19 /* ViewController.h */,
-				BA31EC1B1B67EA08007DEC19 /* ViewController.m */,
 				BA31EC1D1B67EA08007DEC19 /* Main.storyboard */,
 				BA31EC201B67EA08007DEC19 /* Images.xcassets */,
 				BA31EC221B67EA08007DEC19 /* LaunchScreen.xib */,
@@ -196,6 +195,15 @@
 				BA31EC631B681B1B007DEC19 /* NSData+stringConversion.m */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		BA31EC651B686BE6007DEC19 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BA31EC661B686C13007DEC19 /* CTLoginViewController.h */,
+				BA31EC671B686C13007DEC19 /* CTLoginViewController.m */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		C834118A4D2CAB9E843A143B /* Pods */ = {
@@ -349,8 +357,8 @@
 				BA31EC4B1B680CD5007DEC19 /* CTSignedDocument.m in Sources */,
 				BA31EC4E1B680CD6007DEC19 /* CTDraftDocument.m in Sources */,
 				BA31EC191B67EA08007DEC19 /* CodingTest.xcdatamodeld in Sources */,
+				BA31EC681B686C13007DEC19 /* CTLoginViewController.m in Sources */,
 				BA31EC541B680CD6007DEC19 /* CTOriginalDocument.m in Sources */,
-				BA31EC1C1B67EA08007DEC19 /* ViewController.m in Sources */,
 				BA31EC5F1B680DE6007DEC19 /* CTHTTPSessionInteractor.m in Sources */,
 				BA31EC641B681B1B007DEC19 /* NSData+stringConversion.m in Sources */,
 				BA31EC511B680CD6007DEC19 /* CTDocumentFeed.m in Sources */,
