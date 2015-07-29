@@ -26,6 +26,7 @@
 		BACF57241B693D6A00A2AE12 /* CTDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57231B693D6A00A2AE12 /* CTDocument.m */; };
 		BACF57271B693D6A00A2AE12 /* CTDraftDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57261B693D6A00A2AE12 /* CTDraftDocuments.m */; };
 		BACF572A1B693D6A00A2AE12 /* CTSignedDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57291B693D6A00A2AE12 /* CTSignedDocuments.m */; };
+		BACF572E1B6941AF00A2AE12 /* CTDocumentCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF572D1B6941AF00A2AE12 /* CTDocumentCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		BACF57261B693D6A00A2AE12 /* CTDraftDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDraftDocuments.m; path = "Core Data/CTDraftDocuments.m"; sourceTree = "<group>"; };
 		BACF57281B693D6A00A2AE12 /* CTSignedDocuments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTSignedDocuments.h; path = "Core Data/CTSignedDocuments.h"; sourceTree = "<group>"; };
 		BACF57291B693D6A00A2AE12 /* CTSignedDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTSignedDocuments.m; path = "Core Data/CTSignedDocuments.m"; sourceTree = "<group>"; };
+		BACF572C1B6941AF00A2AE12 /* CTDocumentCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocumentCollectionViewController.h; path = "Document Collection/CTDocumentCollectionViewController.h"; sourceTree = "<group>"; };
+		BACF572D1B6941AF00A2AE12 /* CTDocumentCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocumentCollectionViewController.m; path = "Document Collection/CTDocumentCollectionViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,7 @@
 		BA31EC0F1B67EA08007DEC19 /* CodingTest */ = {
 			isa = PBXGroup;
 			children = (
+				BACF572B1B69417A00A2AE12 /* Document Collection */,
 				BA31EC651B686BE6007DEC19 /* Login */,
 				BA31EC581B680D2C007DEC19 /* Networking */,
 				BA31EC391B680C5B007DEC19 /* Core Data */,
@@ -209,6 +213,15 @@
 				BA31EC671B686C13007DEC19 /* CTLoginViewController.m */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		BACF572B1B69417A00A2AE12 /* Document Collection */ = {
+			isa = PBXGroup;
+			children = (
+				BACF572C1B6941AF00A2AE12 /* CTDocumentCollectionViewController.h */,
+				BACF572D1B6941AF00A2AE12 /* CTDocumentCollectionViewController.m */,
+			);
+			name = "Document Collection";
 			sourceTree = "<group>";
 		};
 		C834118A4D2CAB9E843A143B /* Pods */ = {
@@ -368,6 +381,7 @@
 				BA31EC5F1B680DE6007DEC19 /* CTHTTPSessionInteractor.m in Sources */,
 				BACF57241B693D6A00A2AE12 /* CTDocument.m in Sources */,
 				BA31EC641B681B1B007DEC19 /* NSData+stringConversion.m in Sources */,
+				BACF572E1B6941AF00A2AE12 /* CTDocumentCollectionViewController.m in Sources */,
 				BA31EC131B67EA08007DEC19 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
