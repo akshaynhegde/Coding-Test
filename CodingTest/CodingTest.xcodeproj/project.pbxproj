@@ -27,6 +27,11 @@
 		BACF57271B693D6A00A2AE12 /* CTDraftDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57261B693D6A00A2AE12 /* CTDraftDocuments.m */; };
 		BACF572A1B693D6A00A2AE12 /* CTSignedDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57291B693D6A00A2AE12 /* CTSignedDocuments.m */; };
 		BACF572E1B6941AF00A2AE12 /* CTDocumentCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF572D1B6941AF00A2AE12 /* CTDocumentCollectionViewController.m */; };
+		BACF57311B694EA800A2AE12 /* CTLoginViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57301B694EA800A2AE12 /* CTLoginViewController2.m */; };
+		BACF57341B694F4400A2AE12 /* CTLoginFeildTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57331B694F4400A2AE12 /* CTLoginFeildTableViewCell.m */; };
+		BACF57371B694F6100A2AE12 /* CTLoginInfoTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57361B694F6100A2AE12 /* CTLoginInfoTextTableViewCell.m */; };
+		BACF573A1B694F7C00A2AE12 /* CTLoginButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57391B694F7C00A2AE12 /* CTLoginButtonTableViewCell.m */; };
+		BACF573C1B69548600A2AE12 /* CTLoginInfoTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BACF573B1B69548600A2AE12 /* CTLoginInfoTextTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +84,15 @@
 		BACF57291B693D6A00A2AE12 /* CTSignedDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTSignedDocuments.m; path = "Core Data/CTSignedDocuments.m"; sourceTree = "<group>"; };
 		BACF572C1B6941AF00A2AE12 /* CTDocumentCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocumentCollectionViewController.h; path = "Document Collection/CTDocumentCollectionViewController.h"; sourceTree = "<group>"; };
 		BACF572D1B6941AF00A2AE12 /* CTDocumentCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocumentCollectionViewController.m; path = "Document Collection/CTDocumentCollectionViewController.m"; sourceTree = "<group>"; };
+		BACF572F1B694EA800A2AE12 /* CTLoginViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTLoginViewController2.h; path = Login/CTLoginViewController2.h; sourceTree = "<group>"; };
+		BACF57301B694EA800A2AE12 /* CTLoginViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTLoginViewController2.m; path = Login/CTLoginViewController2.m; sourceTree = "<group>"; };
+		BACF57321B694F4400A2AE12 /* CTLoginFeildTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTLoginFeildTableViewCell.h; path = Login/CTLoginFeildTableViewCell.h; sourceTree = "<group>"; };
+		BACF57331B694F4400A2AE12 /* CTLoginFeildTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTLoginFeildTableViewCell.m; path = Login/CTLoginFeildTableViewCell.m; sourceTree = "<group>"; };
+		BACF57351B694F6100A2AE12 /* CTLoginInfoTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTLoginInfoTextTableViewCell.h; path = Login/CTLoginInfoTextTableViewCell.h; sourceTree = "<group>"; };
+		BACF57361B694F6100A2AE12 /* CTLoginInfoTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTLoginInfoTextTableViewCell.m; path = Login/CTLoginInfoTextTableViewCell.m; sourceTree = "<group>"; };
+		BACF57381B694F7B00A2AE12 /* CTLoginButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTLoginButtonTableViewCell.h; path = Login/CTLoginButtonTableViewCell.h; sourceTree = "<group>"; };
+		BACF57391B694F7C00A2AE12 /* CTLoginButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTLoginButtonTableViewCell.m; path = Login/CTLoginButtonTableViewCell.m; sourceTree = "<group>"; };
+		BACF573B1B69548600A2AE12 /* CTLoginInfoTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CTLoginInfoTextTableViewCell.xib; path = Login/CTLoginInfoTextTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +225,15 @@
 			children = (
 				BA31EC661B686C13007DEC19 /* CTLoginViewController.h */,
 				BA31EC671B686C13007DEC19 /* CTLoginViewController.m */,
+				BACF572F1B694EA800A2AE12 /* CTLoginViewController2.h */,
+				BACF57301B694EA800A2AE12 /* CTLoginViewController2.m */,
+				BACF57321B694F4400A2AE12 /* CTLoginFeildTableViewCell.h */,
+				BACF57331B694F4400A2AE12 /* CTLoginFeildTableViewCell.m */,
+				BACF57351B694F6100A2AE12 /* CTLoginInfoTextTableViewCell.h */,
+				BACF57361B694F6100A2AE12 /* CTLoginInfoTextTableViewCell.m */,
+				BACF573B1B69548600A2AE12 /* CTLoginInfoTextTableViewCell.xib */,
+				BACF57381B694F7B00A2AE12 /* CTLoginButtonTableViewCell.h */,
+				BACF57391B694F7C00A2AE12 /* CTLoginButtonTableViewCell.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -317,6 +340,7 @@
 			files = (
 				BA31EC1F1B67EA08007DEC19 /* Main.storyboard in Resources */,
 				BA31EC241B67EA08007DEC19 /* LaunchScreen.xib in Resources */,
+				BACF573C1B69548600A2AE12 /* CTLoginInfoTextTableViewCell.xib in Resources */,
 				BA31EC211B67EA08007DEC19 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,9 +393,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BACF57211B693D6A00A2AE12 /* CTDocuments.m in Sources */,
+				BACF57341B694F4400A2AE12 /* CTLoginFeildTableViewCell.m in Sources */,
 				BACF572A1B693D6A00A2AE12 /* CTSignedDocuments.m in Sources */,
+				BACF57371B694F6100A2AE12 /* CTLoginInfoTextTableViewCell.m in Sources */,
 				BA31EC161B67EA08007DEC19 /* AppDelegate.m in Sources */,
 				BACF571B1B693D6900A2AE12 /* CTOriginalDocuments.m in Sources */,
+				BACF57311B694EA800A2AE12 /* CTLoginViewController2.m in Sources */,
 				BA31EC611B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m in Sources */,
 				BACF571E1B693D6A00A2AE12 /* CTDocumentFeed.m in Sources */,
 				BA31EC601B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.m in Sources */,
@@ -381,6 +408,7 @@
 				BA31EC5F1B680DE6007DEC19 /* CTHTTPSessionInteractor.m in Sources */,
 				BACF57241B693D6A00A2AE12 /* CTDocument.m in Sources */,
 				BA31EC641B681B1B007DEC19 /* NSData+stringConversion.m in Sources */,
+				BACF573A1B694F7C00A2AE12 /* CTLoginButtonTableViewCell.m in Sources */,
 				BACF572E1B6941AF00A2AE12 /* CTDocumentCollectionViewController.m in Sources */,
 				BA31EC131B67EA08007DEC19 /* main.m in Sources */,
 			);
