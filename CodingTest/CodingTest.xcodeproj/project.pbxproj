@@ -19,7 +19,6 @@
 		BA31EC601B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC5C1B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.m */; };
 		BA31EC611B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC5E1B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m */; };
 		BA31EC641B681B1B007DEC19 /* NSData+stringConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC631B681B1B007DEC19 /* NSData+stringConversion.m */; };
-		BA31EC681B686C13007DEC19 /* CTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC671B686C13007DEC19 /* CTLoginViewController.m */; };
 		BACF571B1B693D6900A2AE12 /* CTOriginalDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF571A1B693D6900A2AE12 /* CTOriginalDocuments.m */; };
 		BACF571E1B693D6A00A2AE12 /* CTDocumentFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF571D1B693D6A00A2AE12 /* CTDocumentFeed.m */; };
 		BACF57211B693D6A00A2AE12 /* CTDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57201B693D6A00A2AE12 /* CTDocuments.m */; };
@@ -27,7 +26,7 @@
 		BACF57271B693D6A00A2AE12 /* CTDraftDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57261B693D6A00A2AE12 /* CTDraftDocuments.m */; };
 		BACF572A1B693D6A00A2AE12 /* CTSignedDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57291B693D6A00A2AE12 /* CTSignedDocuments.m */; };
 		BACF572E1B6941AF00A2AE12 /* CTDocumentCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF572D1B6941AF00A2AE12 /* CTDocumentCollectionViewController.m */; };
-		BACF57311B694EA800A2AE12 /* CTLoginViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57301B694EA800A2AE12 /* CTLoginViewController2.m */; };
+		BACF57311B694EA800A2AE12 /* CTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57301B694EA800A2AE12 /* CTLoginViewController.m */; };
 		BACF57341B694F4400A2AE12 /* CTLoginFeildTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57331B694F4400A2AE12 /* CTLoginFeildTableViewCell.m */; };
 		BACF57371B694F6100A2AE12 /* CTLoginInfoTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57361B694F6100A2AE12 /* CTLoginInfoTextTableViewCell.m */; };
 		BACF573A1B694F7C00A2AE12 /* CTLoginButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57391B694F7C00A2AE12 /* CTLoginButtonTableViewCell.m */; };
@@ -69,8 +68,6 @@
 		BA31EC5E1B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTHTTPDocumentsSessionManager.m; path = Networking/CTHTTPDocumentsSessionManager.m; sourceTree = "<group>"; };
 		BA31EC621B681B1B007DEC19 /* NSData+stringConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+stringConversion.h"; path = "Networking/NSData+stringConversion.h"; sourceTree = "<group>"; };
 		BA31EC631B681B1B007DEC19 /* NSData+stringConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+stringConversion.m"; path = "Networking/NSData+stringConversion.m"; sourceTree = "<group>"; };
-		BA31EC661B686C13007DEC19 /* CTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTLoginViewController.h; path = Login/CTLoginViewController.h; sourceTree = "<group>"; };
-		BA31EC671B686C13007DEC19 /* CTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTLoginViewController.m; path = Login/CTLoginViewController.m; sourceTree = "<group>"; };
 		BACF57191B693D6900A2AE12 /* CTOriginalDocuments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTOriginalDocuments.h; path = "Core Data/CTOriginalDocuments.h"; sourceTree = "<group>"; };
 		BACF571A1B693D6900A2AE12 /* CTOriginalDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTOriginalDocuments.m; path = "Core Data/CTOriginalDocuments.m"; sourceTree = "<group>"; };
 		BACF571C1B693D6A00A2AE12 /* CTDocumentFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocumentFeed.h; path = "Core Data/CTDocumentFeed.h"; sourceTree = "<group>"; };
@@ -85,8 +82,8 @@
 		BACF57291B693D6A00A2AE12 /* CTSignedDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTSignedDocuments.m; path = "Core Data/CTSignedDocuments.m"; sourceTree = "<group>"; };
 		BACF572C1B6941AF00A2AE12 /* CTDocumentCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocumentCollectionViewController.h; path = "Document Collection/CTDocumentCollectionViewController.h"; sourceTree = "<group>"; };
 		BACF572D1B6941AF00A2AE12 /* CTDocumentCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocumentCollectionViewController.m; path = "Document Collection/CTDocumentCollectionViewController.m"; sourceTree = "<group>"; };
-		BACF572F1B694EA800A2AE12 /* CTLoginViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTLoginViewController2.h; path = Login/CTLoginViewController2.h; sourceTree = "<group>"; };
-		BACF57301B694EA800A2AE12 /* CTLoginViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTLoginViewController2.m; path = Login/CTLoginViewController2.m; sourceTree = "<group>"; };
+		BACF572F1B694EA800A2AE12 /* CTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTLoginViewController.h; path = Login/CTLoginViewController.h; sourceTree = "<group>"; };
+		BACF57301B694EA800A2AE12 /* CTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTLoginViewController.m; path = Login/CTLoginViewController.m; sourceTree = "<group>"; };
 		BACF57321B694F4400A2AE12 /* CTLoginFeildTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTLoginFeildTableViewCell.h; path = Login/CTLoginFeildTableViewCell.h; sourceTree = "<group>"; };
 		BACF57331B694F4400A2AE12 /* CTLoginFeildTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTLoginFeildTableViewCell.m; path = Login/CTLoginFeildTableViewCell.m; sourceTree = "<group>"; };
 		BACF57351B694F6100A2AE12 /* CTLoginInfoTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTLoginInfoTextTableViewCell.h; path = Login/CTLoginInfoTextTableViewCell.h; sourceTree = "<group>"; };
@@ -226,10 +223,8 @@
 		BA31EC651B686BE6007DEC19 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				BA31EC661B686C13007DEC19 /* CTLoginViewController.h */,
-				BA31EC671B686C13007DEC19 /* CTLoginViewController.m */,
-				BACF572F1B694EA800A2AE12 /* CTLoginViewController2.h */,
-				BACF57301B694EA800A2AE12 /* CTLoginViewController2.m */,
+				BACF572F1B694EA800A2AE12 /* CTLoginViewController.h */,
+				BACF57301B694EA800A2AE12 /* CTLoginViewController.m */,
 				BACF57321B694F4400A2AE12 /* CTLoginFeildTableViewCell.h */,
 				BACF57331B694F4400A2AE12 /* CTLoginFeildTableViewCell.m */,
 				BACF57351B694F6100A2AE12 /* CTLoginInfoTextTableViewCell.h */,
@@ -403,13 +398,12 @@
 				BACF57371B694F6100A2AE12 /* CTLoginInfoTextTableViewCell.m in Sources */,
 				BA31EC161B67EA08007DEC19 /* AppDelegate.m in Sources */,
 				BACF571B1B693D6900A2AE12 /* CTOriginalDocuments.m in Sources */,
-				BACF57311B694EA800A2AE12 /* CTLoginViewController2.m in Sources */,
+				BACF57311B694EA800A2AE12 /* CTLoginViewController.m in Sources */,
 				BA31EC611B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m in Sources */,
 				BACF571E1B693D6A00A2AE12 /* CTDocumentFeed.m in Sources */,
 				BA31EC601B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.m in Sources */,
 				BA31EC191B67EA08007DEC19 /* CodingTest.xcdatamodeld in Sources */,
 				BACF57271B693D6A00A2AE12 /* CTDraftDocuments.m in Sources */,
-				BA31EC681B686C13007DEC19 /* CTLoginViewController.m in Sources */,
 				BA31EC5F1B680DE6007DEC19 /* CTHTTPSessionInteractor.m in Sources */,
 				BACF57241B693D6A00A2AE12 /* CTDocument.m in Sources */,
 				BA31EC641B681B1B007DEC19 /* NSData+stringConversion.m in Sources */,

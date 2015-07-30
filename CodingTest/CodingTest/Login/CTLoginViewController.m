@@ -7,63 +7,239 @@
 //
 
 #import "CTLoginViewController.h"
+#import "CTLoginFeildTableViewCell.h"
+#import "CTLoginInfoTextTableViewCell.h"
+#import "CTLoginButtonTableViewCell.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 #import "CTDocumentCollectionViewController.h"
 
-@interface CTLoginViewController ()
+#define kCTLoginTextFeildCellID @"CTLoginTextFieldCellID"
+#define kCTLoginInfoFeildCellID @"CTLoginInfoCellID"
+#define kCTLoginButtonCellID @"CTLoginButtonCellID"
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewHeight;
-@property (weak, nonatomic) IBOutlet UIView *contentView;
-@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
-@property (weak, nonatomic) IBOutlet UITextField *userNameFeild;
-@property (weak, nonatomic) IBOutlet UITextField *passwordfeild;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *infoLabelLeadingSpace;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *infoLabelTrailingSpace;
-@property (weak, nonatomic) IBOutlet UIButton *loginButton;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginButtonTopSpace;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userNameTopSpacing;
+@interface CTLoginViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
-- (IBAction)loginButtonTapped:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UITableView *tableVIew;
+@property (nonatomic, strong) CTLoginInfoTextTableViewCell *prototypeLoginInfoTextCell;
+
+@property (nonatomic, strong) NSString *userName;
+@property (nonatomic, strong) NSString *password;
+
 @end
 
 @implementation CTLoginViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
-     _infoLabel.text = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum";
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
-     [self adjustContentSize];
+    _prototypeLoginInfoTextCell = [CTLoginInfoTextTableViewCell loadFromNib];
+    _prototypeLoginInfoTextCell.textLabel.text = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum";
+    [_tableVIew registerNib:[CTLoginInfoTextTableViewCell nib] forCellReuseIdentifier:kCTLoginInfoFeildCellID];
+    
+    
+    UIView *emptyView = [[UIView alloc] init];
+    emptyView.backgroundColor = [UIColor clearColor];
+    _tableVIew.tableFooterView = emptyView;
+    
+    [_tableVIew addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:NULL];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
-- (void) viewDidLayoutSubviews
+- (void) viewWillLayoutSubviews
 {
-    [super viewDidLayoutSubviews];
-    [self adjustContentSize];
+    [super viewWillLayoutSubviews];
 }
 
-- (void) updateViewConstraints
+#pragma mark -
+#pragma mark - KVo
+
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    [super updateViewConstraints];
-    _contentViewHeight.constant = _scrollView.contentSize.height;
+    if ([keyPath isEqualToString:@"contentSize"]) {
+    
+        [self.view updateConstraintsIfNeeded];
+        [self.view layoutIfNeeded];
+        
+        UIEdgeInsets inset = _tableVIew.contentInset;
+        CGFloat deltaSpace = CGRectGetHeight(self.view.frame) - [[self topLayoutGuide] length] - _tableVIew.contentSize.height;
+        if (deltaSpace > 0) {
+            inset.top = deltaSpace/2;
+        }
+        else {
+            inset.top = [[self topLayoutGuide] length];
+        }
+        _tableVIew.contentInset = inset;
+        
+        [_tableVIew layoutIfNeeded];
+    }
 }
 
-- (void) adjustContentSize
+#pragma mark -
+#pragma mark - Validate Feilds
+
+- (BOOL) validateUserName:(NSString *) userName andPassword:(NSString *) password
 {
-    CGSize contentSize = CGSizeZero;
-    contentSize.width = CGRectGetWidth(self.view.frame);
-    contentSize.height = CGRectGetMinY(_infoLabel.frame) + [_infoLabel sizeThatFits:CGSizeMake(CGRectGetWidth(self.view.frame) - _infoLabelLeadingSpace.constant - _infoLabelTrailingSpace.constant, CGFLOAT_MAX)].height + CGRectGetHeight(_loginButton.frame) + _loginButtonTopSpace.constant;
-    _scrollView.contentSize = contentSize;
+    BOOL isValid = NO;
+    isValid = (userName.length > 0 && password.length > 0);
+    return isValid;
 }
 
-- (IBAction)loginButtonTapped:(UIButton *)sender
+#pragma mark -
+#pragma mark - UITableViewDelegate
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CTDocumentCollectionViewController *collectionVC = [CTDocumentCollectionViewController loadFromStoryBoard];
-    [self.navigationController pushViewController:collectionVC animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 3) {
+        
+        if ([self validateUserName:_userName andPassword:_password]) {
+            CTDocumentCollectionViewController *collectionVC = [CTDocumentCollectionViewController loadFromStoryBoard];
+            [self.navigationController pushViewController:collectionVC animated:YES];
+        }
+        else {
+            [SVProgressHUD showInfoWithStatus:@"Please Enter your User Name and Password to continue" maskType:SVProgressHUDMaskTypeGradient];
+        }
+    }
+}
+
+#pragma mark -
+#pragma mark - UITableViewDataSOurce
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 4;
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    CGFloat height = 20.0;
+    return height;
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *emptyView = [[UIView alloc] init];
+    [emptyView setHidden:YES];
+    return emptyView;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat height = 44.0;
+    if (indexPath.section == 2) {
+        
+        [_prototypeLoginInfoTextCell setNeedsUpdateConstraints];
+        [_prototypeLoginInfoTextCell setNeedsLayout];
+        
+        height = [_prototypeLoginInfoTextCell sizeThatFits:CGSizeMake(tableView.frame.size.width, CGFLOAT_MAX)].height;
+    }
+    
+    return height;
+}
+
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.section) {
+        case 0:
+        {
+            CTLoginFeildTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCTLoginTextFeildCellID forIndexPath:indexPath];
+            cell.textField.delegate = self;
+            [cell customizeForType:CTLoginfieldTypeUserName];
+            return cell;
+            break;
+        }
+        case 1:
+        {
+            CTLoginFeildTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCTLoginTextFeildCellID forIndexPath:indexPath];
+            cell.textField.delegate = self;
+            [cell customizeForType:CTLoginfieldTypePassword];
+            return cell;
+            break;
+        }
+        case 2:
+        {
+            CTLoginInfoTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCTLoginInfoFeildCellID forIndexPath:indexPath];
+            cell.textLabel.text = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum";
+            return cell;
+            break;
+        }
+        case 3:
+        {
+            CTLoginButtonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCTLoginButtonCellID forIndexPath:indexPath];
+            return cell;
+            break;
+        }
+        default:
+            return nil;
+            break;
+    }
+}
+
+#pragma mark -
+#pragma mark - UITextFeild Delegates
+
+- (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSMutableString *currentText = [NSMutableString stringWithString:textField.text];
+    [currentText replaceCharactersInRange:range withString:string];
+    
+    if (textField.tag == CTLoginfieldTypeUserName) {
+        _userName = currentText;
+    }
+    else {
+        _password = currentText;
+    }
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField
+{
+    if (textField.tag == CTLoginfieldTypeUserName) {
+        _userName = nil;;
+    }
+    else {
+        _password = nil;
+    }
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField.tag == CTLoginfieldTypeUserName) {
+        //Go to password
+        [textField resignFirstResponder];
+        
+        CTLoginFeildTableViewCell *passwordCell = (CTLoginFeildTableViewCell *)[_tableVIew cellForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:1]];
+        if (passwordCell) {
+            [passwordCell.textField becomeFirstResponder];
+        }
+    }
+    else if (textField.tag ==  CTLoginfieldTypePassword) {
+        
+        [self tableView:_tableVIew didSelectRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:3]];
+    }
+
+    return YES;
+}
+
+- (void)dealloc
+{
+    [_tableVIew removeObserver:self forKeyPath:@"contentSize"];
 }
 
 @end
