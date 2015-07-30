@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <MagicalRecord/MagicalRecord.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface AppDelegate ()
 
@@ -16,7 +17,13 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    /**
+     *  Customoze HUDs
+     */
+    [SVProgressHUD setBackgroundColor:[UIColor blackColor]];
+    [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
+    [SVProgressHUD setFont:[UIFont fontWithName:@"Avenir-Black" size:14.0]];
     
     [MagicalRecord setupCoreDataStack];
     
