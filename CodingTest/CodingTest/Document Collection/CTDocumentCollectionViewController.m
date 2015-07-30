@@ -22,6 +22,7 @@
 #define kCTDocumentCollectionCellID @"CTDocumentCollectionViewCellID"
 #define kCTDocumentCollectionSectionHeaderViewID @"kCTDocumentCollectionSectionHeaderViewID"
 
+
 @interface CTDocumentCollectionViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,NSFetchedResultsControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -65,7 +66,11 @@
     
     [_collectionView registerNib:[CTDocumentCollectionSectionHeaderViewCollectionReusableView nib] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kCTDocumentCollectionSectionHeaderViewID];
     
+    /**
+     *  I have not used any localized strings due to time constraints, which would be ideal for messages and texts as these.
+     */
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeNone];
+    
     __weak typeof(self) weakSelf = self;
     _documentSessionInteractor = [[CTHTTPDocumentsSessionInteractor alloc] init];
     [_documentSessionInteractor fetchDocumentsAndSaveToDBWithCompletion:^(NSURLSessionTask *task, id response) {
@@ -74,6 +79,10 @@
         [weakSelf.collectionView reloadData];
         
     } failure:^(NSURLSessionTask *task, NSError *error) {
+        
+        /**
+         *  Errors could be handled in better way, just picking the easiest way here.
+         */
         [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"%@",error.localizedDescription]];
     }];
 }
@@ -92,11 +101,11 @@
     fetchRequest.fetchBatchSize = 30;
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"parentContainer.displayTitle" ascending:NO],[NSSortDescriptor sortDescriptorWithKey:@"modifiedDate" ascending:NO]];
     
-    _fetchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[NSManagedObjectContext MR_defaultContext] sectionNameKeyPath:@"parentContainer.displayTitle" cacheName:@"CodumentsCollectionCache"];
+    _fetchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[NSManagedObjectContext MR_defaultContext] sectionNameKeyPath:@"parentContainer.displayTitle" cacheName:@"doumentsCollectionCache"];
     _fetchResultsController.delegate = self;
     
     NSError *error = nil;
-    [NSFetchedResultsController deleteCacheWithName:@"CodumentsCollectionCache"];
+    [NSFetchedResultsController deleteCacheWithName:@"doumentsCollectionCache"];
     [_fetchResultsController performFetch:&error];
 }
 

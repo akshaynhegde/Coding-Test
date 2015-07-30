@@ -54,6 +54,9 @@ NSString const *CTLoginFieldErrorDomainValidationFailed = @"CTLoginFieldErrorDom
     }
     else {
         if (_LoginBlock) {
+            /**
+             *  I have not used any localized strings due to time constraints, which would be ideal for messages and texts as these.
+             */
             _LoginBlock(NO, [NSError errorWithDomain:[NSString stringWithFormat:@"%@",CTLoginFieldErrorDomainValidationFailed] code:-1 userInfo:@{NSLocalizedDescriptionKey : @"Please Enter your User Name and Password to continue"}]);
         }
     }
