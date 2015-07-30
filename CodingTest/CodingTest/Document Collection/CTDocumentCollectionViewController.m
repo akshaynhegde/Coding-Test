@@ -13,8 +13,14 @@
 #import "CTHTTPDocumentsSessionInteractor.h"
 #import "CTDocumentCollectionViewCell.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "CTDocumentCollectionSectionHeaderViewCollectionReusableView.h"
+#import "CTOriginalDocuments.h"
+#import "CTDraftDocuments.h"
+#import "CTSignedDocuments.h"
+#import "CTDocumentDetailViewController.h"
 
 #define kCTDocumentCollectionCellID @"CTDocumentCollectionViewCellID"
+#define kCTDocumentCollectionSectionHeaderViewID @"kCTDocumentCollectionSectionHeaderViewID"
 
 @interface CTDocumentCollectionViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,NSFetchedResultsControllerDelegate>
 
@@ -50,12 +56,14 @@
     
     self.title =  @"Documents";
     
+    [self setUpFetchresultsController];
+    
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)_collectionView.collectionViewLayout;
     layout.minimumInteritemSpacing = 10.0;
     layout.minimumLineSpacing = 10.0;
     layout.sectionInset = UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0);
     
-    [self setUpFetchresultsController];
+    [_collectionView registerNib:[CTDocumentCollectionSectionHeaderViewCollectionReusableView nib] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kCTDocumentCollectionSectionHeaderViewID];
     
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeNone];
     __weak typeof(self) weakSelf = self;
@@ -63,8 +71,8 @@
     [_documentSessionInteractor fetchDocumentsAndSaveToDBWithCompletion:^(NSURLSessionTask *task, id response) {
         
         [SVProgressHUD dismiss];
-        NSError *fetchError = nil;
-        [weakSelf.fetchResultsController performFetch:&fetchError];
+//        NSError *fetchError = nil;
+//        [weakSelf.fetchResultsController performFetch:&fetchError];
         [weakSelf.collectionView reloadData];
         
     } failure:^(NSURLSessionTask *task, NSError *error) {
@@ -84,9 +92,9 @@
 {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([CTDocument class])];
     fetchRequest.fetchBatchSize = 50;
-    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"modifiedDate" ascending:NO]];
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"parentContainer.displayTitle" ascending:NO],[NSSortDescriptor sortDescriptorWithKey:@"modifiedDate" ascending:NO]];
     
-    _fetchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[NSManagedObjectContext MR_defaultContext] sectionNameKeyPath:@"parentContainer" cacheName:@"CTDocumentsCollectionCache"];
+    _fetchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[NSManagedObjectContext MR_defaultContext] sectionNameKeyPath:@"parentContainer.displayTitle" cacheName:@"CTDocumentsCollectionCache"];
     _fetchResultsController.delegate = self;
     
     NSError *error = nil;
@@ -257,8 +265,28 @@
     return size;
 }
 
+- (CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    return CGSizeMake(collectionView.bounds.size.width, 44.0);
+}
+
 #pragma mark -
 #pragma mark - UICollectionViewDataSource
+
+- (UICollectionReusableView *) collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        CTDocumentCollectionSectionHeaderViewCollectionReusableView *sectionHeader = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kCTDocumentCollectionSectionHeaderViewID forIndexPath:indexPath];
+        
+        id <NSFetchedResultsSectionInfo> sectionInfo = [_fetchResultsController sections][indexPath.section];
+        NSString *title = [NSString stringWithFormat:@"%@ (%@)",[sectionInfo indexTitle],@([sectionInfo numberOfObjects])];
+        sectionHeader.titleLabel.text = title;
+        
+        return sectionHeader;
+    }
+    
+    return nil;
+}
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -277,7 +305,31 @@
     CTDocument *document = [_fetchResultsController objectAtIndexPath:indexPath];
     [cell customizeWithTitle:document.name];
     
+    __weak typeof(self) weakSelf = self;
+    [cell setInfoButtonActionBlock:^(CTDocumentCollectionViewCell *sender) {
+        NSIndexPath *senderIndexPath = [collectionView indexPathForCell:sender];
+        
+        if (indexPath) {
+            CTDocument *selectedDocument = [weakSelf.fetchResultsController objectAtIndexPath:senderIndexPath];
+            
+            CTDocumentDetailViewController *detailVC = [CTDocumentDetailViewController loadFromStoryBoard];
+            detailVC.selectedDocumentID = selectedDocument.objectID;
+            
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:detailVC];
+            [weakSelf presentViewController:navController animated:YES completion:nil];
+        }
+    }];
+    
     return cell;
+}
+
+
+#pragma mark -
+#pragma mark - Dealloc
+
+- (void)dealloc
+{
+    [SVProgressHUD dismiss];
 }
 
 @end
