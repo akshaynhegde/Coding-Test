@@ -133,7 +133,6 @@
         
         NSDictionary *originalsDict = [response objectForKey:kCTAPIKeyOriginal];
         NSArray *files = [originalsDict objectForKey:kCTAPIKeyFiles];
-//        files = [weakSelf dummyDuplicates:files];
         
         [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
 
