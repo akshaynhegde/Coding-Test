@@ -15,7 +15,8 @@ typedef NS_ENUM(NSUInteger, CTLoginfieldType) {
 
 @interface CTLoginFeildTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (nonatomic, readonly) CTLoginfieldType type;
+@property (weak, nonatomic) IBOutlet UITextField *textField;//Tag of the textFeild will be the type.
 
 - (void) customizeForType:(CTLoginfieldType) type;
 @end

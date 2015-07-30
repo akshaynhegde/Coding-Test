@@ -28,6 +28,13 @@
     self.layer.masksToBounds = YES;
 }
 
+- (void) layoutSubviews
+{
+    [super layoutSubviews];
+    
+    _titleLabel.preferredMaxLayoutWidth = self.contentView.bounds.size.width;
+}
+
 - (IBAction)infoButtonTapped:(UIButton *)sender
 {
     if (_InfoButtonActionBlock) {

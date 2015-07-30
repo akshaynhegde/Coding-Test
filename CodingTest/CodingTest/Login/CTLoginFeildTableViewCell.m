@@ -8,6 +8,12 @@
 
 #import "CTLoginFeildTableViewCell.h"
 
+@interface CTLoginFeildTableViewCell()
+
+@property (nonatomic, readwrite) CTLoginfieldType type;
+
+@end
+
 @implementation CTLoginFeildTableViewCell
 
 - (void)awakeFromNib {
@@ -22,14 +28,19 @@
 
 - (void) customizeForType:(CTLoginfieldType)type
 {
+    _type = type;
+    _textField.tag = _type;
+    
     switch (type) {
         case CTLoginfieldTypeUserName:
             _textField.placeholder = @"User Name";
             _textField.secureTextEntry = NO;
+            _textField.returnKeyType = UIReturnKeyNext;
             break;
         case CTLoginfieldTypePassword:
             _textField.placeholder = @"Password";
             _textField.secureTextEntry = YES;
+            _textField.returnKeyType = UIReturnKeyGo;
             break;
         default:
             break;
