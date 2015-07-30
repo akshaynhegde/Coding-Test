@@ -18,6 +18,8 @@
 #define kCTLoginInfoFeildCellID @"CTLoginInfoCellID"
 #define kCTLoginButtonCellID @"CTLoginButtonCellID"
 
+#define INFO_TEXT @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum"
+
 @interface CTLoginViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableVIew;
@@ -32,8 +34,6 @@
 {
     [super viewDidLoad];
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    
     __weak typeof(self) weakSelf = self;
     _loginFieldsManager = [[CTLoginInputFeildsManager alloc] init];
     [_loginFieldsManager setLoginBlock:^(BOOL success, NSError *error) {
@@ -47,15 +47,13 @@
     }];
     
     _prototypeLoginInfoTextCell = [CTLoginInfoTextTableViewCell loadFromNib];
-    _prototypeLoginInfoTextCell.textLabel.text = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum";
+    _prototypeLoginInfoTextCell.textLabel.text = INFO_TEXT;
     [_tableVIew registerNib:[CTLoginInfoTextTableViewCell nib] forCellReuseIdentifier:kCTLoginInfoFeildCellID];
     
     
     UIView *emptyView = [[UIView alloc] init];
     emptyView.backgroundColor = [UIColor clearColor];
     _tableVIew.tableFooterView = emptyView;
-    
-    [_tableVIew addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:NULL];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,30 +64,17 @@
 - (void) viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
-}
-
-#pragma mark -
-#pragma mark - KVo
-
-- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if ([keyPath isEqualToString:@"contentSize"]) {
     
-        [self.view updateConstraintsIfNeeded];
-        [self.view layoutIfNeeded];
-        
-        UIEdgeInsets inset = _tableVIew.contentInset;
-        CGFloat deltaSpace = CGRectGetHeight(self.view.frame) - [[self topLayoutGuide] length] - _tableVIew.contentSize.height;
-        if (deltaSpace > 0) {
-            inset.top = deltaSpace/2;
-        }
-        else {
-            inset.top = [[self topLayoutGuide] length];
-        }
-        _tableVIew.contentInset = inset;
-        
-        [_tableVIew layoutIfNeeded];
+    UIEdgeInsets inset = _tableVIew.contentInset;
+    CGFloat deltaSpace = CGRectGetHeight(self.view.frame) - [[self topLayoutGuide] length] - _tableVIew.contentSize.height;
+    if (deltaSpace > 0) {
+        inset.top = deltaSpace/2 + [[self topLayoutGuide] length];
     }
+    else {
+        inset.top = [[self topLayoutGuide] length];
+    }
+    _tableVIew.contentInset = inset;
+
 }
 
 #pragma mark -
@@ -166,7 +151,7 @@
         case 2:
         {
             CTLoginInfoTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCTLoginInfoFeildCellID forIndexPath:indexPath];
-            cell.textLabel.text = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum";
+            cell.textLabel.text = INFO_TEXT;
             return cell;
             break;
         }
@@ -184,7 +169,8 @@
 
 - (void)dealloc
 {
-    [_tableVIew removeObserver:self forKeyPath:@"contentSize"];
+    _tableVIew.delegate = nil;
+    _tableVIew.dataSource = nil;
 }
 
 @end
