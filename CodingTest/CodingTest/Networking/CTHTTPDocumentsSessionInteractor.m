@@ -206,17 +206,6 @@
 
 }
 
-//- (NSArray *) dummyDuplicates:(NSArray *) files
-//{
-//    NSMutableArray *duplicates = [NSMutableArray arrayWithArray:files];
-//    for (NSDictionary *aFile in files) {
-//        for (NSInteger i = 0; i < 120; i++) {
-//            [duplicates addObject:[aFile copy]];
-//        }
-//    }
-//    return duplicates;
-//}
-
 - (CTDocument *) createDocumentEntityFromDict:(NSDictionary *) dict inContext:(NSManagedObjectContext *) context
 {
     CTDocument *aDocument = [CTDocument MR_createEntityInContext:context];
