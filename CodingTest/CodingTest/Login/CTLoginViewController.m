@@ -12,6 +12,7 @@
 #import "CTLoginButtonTableViewCell.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "CTDocumentCollectionViewController.h"
+#import "CTLoginInputFeildsManager.h"
 
 #define kCTLoginTextFeildCellID @"CTLoginTextFieldCellID"
 #define kCTLoginInfoFeildCellID @"CTLoginInfoCellID"
@@ -21,9 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableVIew;
 @property (nonatomic, strong) CTLoginInfoTextTableViewCell *prototypeLoginInfoTextCell;
-
-@property (nonatomic, strong) NSString *userName;
-@property (nonatomic, strong) NSString *password;
+@property (nonatomic, strong) CTLoginInputFeildsManager *loginFieldsManager;
 
 @end
 
@@ -34,6 +33,18 @@
     [super viewDidLoad];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    __weak typeof(self) weakSelf = self;
+    _loginFieldsManager = [[CTLoginInputFeildsManager alloc] init];
+    [_loginFieldsManager setLoginBlock:^(BOOL success, NSError *error) {
+        if (success) {
+            CTDocumentCollectionViewController *documentCollectionVC = [CTDocumentCollectionViewController loadFromStoryBoard];
+            [weakSelf.navigationController pushViewController:documentCollectionVC animated:YES];
+        }
+        else {
+            [SVProgressHUD showInfoWithStatus:[error localizedDescription] maskType:SVProgressHUDMaskTypeGradient];
+        }
+    }];
     
     _prototypeLoginInfoTextCell = [CTLoginInfoTextTableViewCell loadFromNib];
     _prototypeLoginInfoTextCell.textLabel.text = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum";
@@ -82,31 +93,13 @@
 }
 
 #pragma mark -
-#pragma mark - Validate Feilds
-
-- (BOOL) validateUserName:(NSString *) userName andPassword:(NSString *) password
-{
-    BOOL isValid = NO;
-    isValid = (userName.length > 0 && password.length > 0);
-    return isValid;
-}
-
-#pragma mark -
 #pragma mark - UITableViewDelegate
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
     if (indexPath.section == 3) {
-        
-        if ([self validateUserName:_userName andPassword:_password]) {
-            CTDocumentCollectionViewController *collectionVC = [CTDocumentCollectionViewController loadFromStoryBoard];
-            [self.navigationController pushViewController:collectionVC animated:YES];
-        }
-        else {
-            [SVProgressHUD showInfoWithStatus:@"Please Enter your User Name and Password to continue" maskType:SVProgressHUDMaskTypeGradient];
-        }
+        [_loginFieldsManager login];
     }
 }
 
@@ -156,8 +149,8 @@
         case 0:
         {
             CTLoginFeildTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCTLoginTextFeildCellID forIndexPath:indexPath];
-            cell.textField.delegate = self;
             [cell customizeForType:CTLoginfieldTypeUserName];
+            _loginFieldsManager.userNameField = cell.textField;
             return cell;
             break;
         }
@@ -166,6 +159,7 @@
             CTLoginFeildTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCTLoginTextFeildCellID forIndexPath:indexPath];
             cell.textField.delegate = self;
             [cell customizeForType:CTLoginfieldTypePassword];
+            _loginFieldsManager.passwordField = cell.textField;
             return cell;
             break;
         }
@@ -186,55 +180,6 @@
             return nil;
             break;
     }
-}
-
-#pragma mark -
-#pragma mark - UITextFeild Delegates
-
-- (BOOL) textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    NSMutableString *currentText = [NSMutableString stringWithString:textField.text];
-    [currentText replaceCharactersInRange:range withString:string];
-    
-    if (textField.tag == CTLoginfieldTypeUserName) {
-        _userName = currentText;
-    }
-    else {
-        _password = currentText;
-    }
-    
-    return YES;
-}
-
-- (BOOL)textFieldShouldClear:(UITextField *)textField
-{
-    if (textField.tag == CTLoginfieldTypeUserName) {
-        _userName = nil;;
-    }
-    else {
-        _password = nil;
-    }
-    
-    return YES;
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    if (textField.tag == CTLoginfieldTypeUserName) {
-        //Go to password
-        [textField resignFirstResponder];
-        
-        CTLoginFeildTableViewCell *passwordCell = (CTLoginFeildTableViewCell *)[_tableVIew cellForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:1]];
-        if (passwordCell) {
-            [passwordCell.textField becomeFirstResponder];
-        }
-    }
-    else if (textField.tag ==  CTLoginfieldTypePassword) {
-        
-        [self tableView:_tableVIew didSelectRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:3]];
-    }
-
-    return YES;
 }
 
 - (void)dealloc

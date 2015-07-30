@@ -26,6 +26,12 @@
     // Configure the view for the selected state
 }
 
+- (void) prepareForReuse
+{
+    [super prepareForReuse];
+    _textField.delegate = nil;
+}
+
 - (void) customizeForType:(CTLoginfieldType)type
 {
     _type = type;
