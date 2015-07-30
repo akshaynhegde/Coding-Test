@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		3D2ED8472E74E04A715515CE /* libPods-CodingTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD42462C5F281A69FC812728 /* libPods-CodingTest.a */; };
+		BA074FF91B6A4B6A00879B28 /* CTDocumentCollectionSectionHeaderViewCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA074FF71B6A4B6A00879B28 /* CTDocumentCollectionSectionHeaderViewCollectionReusableView.m */; };
+		BA074FFA1B6A4B6A00879B28 /* CTDocumentCollectionSectionHeaderViewCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA074FF81B6A4B6A00879B28 /* CTDocumentCollectionSectionHeaderViewCollectionReusableView.xib */; };
+		BA074FFD1B6A51C900879B28 /* CTDocumentFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = BA074FFC1B6A51C900879B28 /* CTDocumentFeed.m */; };
+		BA0750001B6A51C900879B28 /* CTDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BA074FFF1B6A51C900879B28 /* CTDocuments.m */; };
+		BA0750031B6A51C900879B28 /* CTDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0750021B6A51C900879B28 /* CTDocument.m */; };
+		BA0750061B6A51C900879B28 /* CTDraftDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0750051B6A51C900879B28 /* CTDraftDocuments.m */; };
+		BA0750091B6A51CA00879B28 /* CTOriginalDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0750081B6A51CA00879B28 /* CTOriginalDocuments.m */; };
+		BA07500C1B6A51CA00879B28 /* CTSignedDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BA07500B1B6A51CA00879B28 /* CTSignedDocuments.m */; };
+		BA07500F1B6A73DC00879B28 /* CTDocumentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA07500E1B6A73DC00879B28 /* CTDocumentDetailViewController.m */; };
 		BA31EC131B67EA08007DEC19 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC121B67EA08007DEC19 /* main.m */; };
 		BA31EC161B67EA08007DEC19 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC151B67EA08007DEC19 /* AppDelegate.m */; };
 		BA31EC191B67EA08007DEC19 /* CodingTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC171B67EA08007DEC19 /* CodingTest.xcdatamodeld */; };
@@ -19,12 +28,6 @@
 		BA31EC601B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC5C1B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.m */; };
 		BA31EC611B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC5E1B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m */; };
 		BA31EC641B681B1B007DEC19 /* NSData+stringConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = BA31EC631B681B1B007DEC19 /* NSData+stringConversion.m */; };
-		BACF571B1B693D6900A2AE12 /* CTOriginalDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF571A1B693D6900A2AE12 /* CTOriginalDocuments.m */; };
-		BACF571E1B693D6A00A2AE12 /* CTDocumentFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF571D1B693D6A00A2AE12 /* CTDocumentFeed.m */; };
-		BACF57211B693D6A00A2AE12 /* CTDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57201B693D6A00A2AE12 /* CTDocuments.m */; };
-		BACF57241B693D6A00A2AE12 /* CTDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57231B693D6A00A2AE12 /* CTDocument.m */; };
-		BACF57271B693D6A00A2AE12 /* CTDraftDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57261B693D6A00A2AE12 /* CTDraftDocuments.m */; };
-		BACF572A1B693D6A00A2AE12 /* CTSignedDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57291B693D6A00A2AE12 /* CTSignedDocuments.m */; };
 		BACF572E1B6941AF00A2AE12 /* CTDocumentCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF572D1B6941AF00A2AE12 /* CTDocumentCollectionViewController.m */; };
 		BACF57311B694EA800A2AE12 /* CTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57301B694EA800A2AE12 /* CTLoginViewController.m */; };
 		BACF57341B694F4400A2AE12 /* CTLoginFeildTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BACF57331B694F4400A2AE12 /* CTLoginFeildTableViewCell.m */; };
@@ -49,6 +52,23 @@
 		1E68535B3003AE72B5AD8205 /* Pods-CodingTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodingTest/Pods-CodingTest.debug.xcconfig"; sourceTree = "<group>"; };
 		7BF345B265F27CFDF45A2BC5 /* Pods-CodingTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodingTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodingTest/Pods-CodingTest.release.xcconfig"; sourceTree = "<group>"; };
 		AD42462C5F281A69FC812728 /* libPods-CodingTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CodingTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA074FF61B6A4B6A00879B28 /* CTDocumentCollectionSectionHeaderViewCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocumentCollectionSectionHeaderViewCollectionReusableView.h; path = "Document Collection/CTDocumentCollectionSectionHeaderViewCollectionReusableView.h"; sourceTree = "<group>"; };
+		BA074FF71B6A4B6A00879B28 /* CTDocumentCollectionSectionHeaderViewCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocumentCollectionSectionHeaderViewCollectionReusableView.m; path = "Document Collection/CTDocumentCollectionSectionHeaderViewCollectionReusableView.m"; sourceTree = "<group>"; };
+		BA074FF81B6A4B6A00879B28 /* CTDocumentCollectionSectionHeaderViewCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CTDocumentCollectionSectionHeaderViewCollectionReusableView.xib; path = "Document Collection/CTDocumentCollectionSectionHeaderViewCollectionReusableView.xib"; sourceTree = "<group>"; };
+		BA074FFB1B6A51C900879B28 /* CTDocumentFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocumentFeed.h; path = "Core Data/CTDocumentFeed.h"; sourceTree = "<group>"; };
+		BA074FFC1B6A51C900879B28 /* CTDocumentFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocumentFeed.m; path = "Core Data/CTDocumentFeed.m"; sourceTree = "<group>"; };
+		BA074FFE1B6A51C900879B28 /* CTDocuments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocuments.h; path = "Core Data/CTDocuments.h"; sourceTree = "<group>"; };
+		BA074FFF1B6A51C900879B28 /* CTDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocuments.m; path = "Core Data/CTDocuments.m"; sourceTree = "<group>"; };
+		BA0750011B6A51C900879B28 /* CTDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocument.h; path = "Core Data/CTDocument.h"; sourceTree = "<group>"; };
+		BA0750021B6A51C900879B28 /* CTDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocument.m; path = "Core Data/CTDocument.m"; sourceTree = "<group>"; };
+		BA0750041B6A51C900879B28 /* CTDraftDocuments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDraftDocuments.h; path = "Core Data/CTDraftDocuments.h"; sourceTree = "<group>"; };
+		BA0750051B6A51C900879B28 /* CTDraftDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDraftDocuments.m; path = "Core Data/CTDraftDocuments.m"; sourceTree = "<group>"; };
+		BA0750071B6A51CA00879B28 /* CTOriginalDocuments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTOriginalDocuments.h; path = "Core Data/CTOriginalDocuments.h"; sourceTree = "<group>"; };
+		BA0750081B6A51CA00879B28 /* CTOriginalDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTOriginalDocuments.m; path = "Core Data/CTOriginalDocuments.m"; sourceTree = "<group>"; };
+		BA07500A1B6A51CA00879B28 /* CTSignedDocuments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTSignedDocuments.h; path = "Core Data/CTSignedDocuments.h"; sourceTree = "<group>"; };
+		BA07500B1B6A51CA00879B28 /* CTSignedDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTSignedDocuments.m; path = "Core Data/CTSignedDocuments.m"; sourceTree = "<group>"; };
+		BA07500D1B6A73DC00879B28 /* CTDocumentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocumentDetailViewController.h; path = "Document Collection/CTDocumentDetailViewController.h"; sourceTree = "<group>"; };
+		BA07500E1B6A73DC00879B28 /* CTDocumentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocumentDetailViewController.m; path = "Document Collection/CTDocumentDetailViewController.m"; sourceTree = "<group>"; };
 		BA31EC0D1B67EA08007DEC19 /* CodingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA31EC111B67EA08007DEC19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA31EC121B67EA08007DEC19 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -69,18 +89,6 @@
 		BA31EC5E1B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTHTTPDocumentsSessionManager.m; path = Networking/CTHTTPDocumentsSessionManager.m; sourceTree = "<group>"; };
 		BA31EC621B681B1B007DEC19 /* NSData+stringConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+stringConversion.h"; path = "Networking/NSData+stringConversion.h"; sourceTree = "<group>"; };
 		BA31EC631B681B1B007DEC19 /* NSData+stringConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+stringConversion.m"; path = "Networking/NSData+stringConversion.m"; sourceTree = "<group>"; };
-		BACF57191B693D6900A2AE12 /* CTOriginalDocuments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTOriginalDocuments.h; path = "Core Data/CTOriginalDocuments.h"; sourceTree = "<group>"; };
-		BACF571A1B693D6900A2AE12 /* CTOriginalDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTOriginalDocuments.m; path = "Core Data/CTOriginalDocuments.m"; sourceTree = "<group>"; };
-		BACF571C1B693D6A00A2AE12 /* CTDocumentFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocumentFeed.h; path = "Core Data/CTDocumentFeed.h"; sourceTree = "<group>"; };
-		BACF571D1B693D6A00A2AE12 /* CTDocumentFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocumentFeed.m; path = "Core Data/CTDocumentFeed.m"; sourceTree = "<group>"; };
-		BACF571F1B693D6A00A2AE12 /* CTDocuments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocuments.h; path = "Core Data/CTDocuments.h"; sourceTree = "<group>"; };
-		BACF57201B693D6A00A2AE12 /* CTDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocuments.m; path = "Core Data/CTDocuments.m"; sourceTree = "<group>"; };
-		BACF57221B693D6A00A2AE12 /* CTDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocument.h; path = "Core Data/CTDocument.h"; sourceTree = "<group>"; };
-		BACF57231B693D6A00A2AE12 /* CTDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocument.m; path = "Core Data/CTDocument.m"; sourceTree = "<group>"; };
-		BACF57251B693D6A00A2AE12 /* CTDraftDocuments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDraftDocuments.h; path = "Core Data/CTDraftDocuments.h"; sourceTree = "<group>"; };
-		BACF57261B693D6A00A2AE12 /* CTDraftDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDraftDocuments.m; path = "Core Data/CTDraftDocuments.m"; sourceTree = "<group>"; };
-		BACF57281B693D6A00A2AE12 /* CTSignedDocuments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTSignedDocuments.h; path = "Core Data/CTSignedDocuments.h"; sourceTree = "<group>"; };
-		BACF57291B693D6A00A2AE12 /* CTSignedDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTSignedDocuments.m; path = "Core Data/CTSignedDocuments.m"; sourceTree = "<group>"; };
 		BACF572C1B6941AF00A2AE12 /* CTDocumentCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTDocumentCollectionViewController.h; path = "Document Collection/CTDocumentCollectionViewController.h"; sourceTree = "<group>"; };
 		BACF572D1B6941AF00A2AE12 /* CTDocumentCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTDocumentCollectionViewController.m; path = "Document Collection/CTDocumentCollectionViewController.m"; sourceTree = "<group>"; };
 		BACF572F1B694EA800A2AE12 /* CTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTLoginViewController.h; path = Login/CTLoginViewController.h; sourceTree = "<group>"; };
@@ -194,18 +202,18 @@
 		BA31EC391B680C5B007DEC19 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				BACF57281B693D6A00A2AE12 /* CTSignedDocuments.h */,
-				BACF57291B693D6A00A2AE12 /* CTSignedDocuments.m */,
-				BACF57251B693D6A00A2AE12 /* CTDraftDocuments.h */,
-				BACF57261B693D6A00A2AE12 /* CTDraftDocuments.m */,
-				BACF57221B693D6A00A2AE12 /* CTDocument.h */,
-				BACF57231B693D6A00A2AE12 /* CTDocument.m */,
-				BACF571F1B693D6A00A2AE12 /* CTDocuments.h */,
-				BACF57201B693D6A00A2AE12 /* CTDocuments.m */,
-				BACF571C1B693D6A00A2AE12 /* CTDocumentFeed.h */,
-				BACF571D1B693D6A00A2AE12 /* CTDocumentFeed.m */,
-				BACF57191B693D6900A2AE12 /* CTOriginalDocuments.h */,
-				BACF571A1B693D6900A2AE12 /* CTOriginalDocuments.m */,
+				BA07500A1B6A51CA00879B28 /* CTSignedDocuments.h */,
+				BA07500B1B6A51CA00879B28 /* CTSignedDocuments.m */,
+				BA0750071B6A51CA00879B28 /* CTOriginalDocuments.h */,
+				BA0750081B6A51CA00879B28 /* CTOriginalDocuments.m */,
+				BA0750041B6A51C900879B28 /* CTDraftDocuments.h */,
+				BA0750051B6A51C900879B28 /* CTDraftDocuments.m */,
+				BA0750011B6A51C900879B28 /* CTDocument.h */,
+				BA0750021B6A51C900879B28 /* CTDocument.m */,
+				BA074FFE1B6A51C900879B28 /* CTDocuments.h */,
+				BA074FFF1B6A51C900879B28 /* CTDocuments.m */,
+				BA074FFB1B6A51C900879B28 /* CTDocumentFeed.h */,
+				BA074FFC1B6A51C900879B28 /* CTDocumentFeed.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -250,6 +258,11 @@
 				BACF572D1B6941AF00A2AE12 /* CTDocumentCollectionViewController.m */,
 				BACF573D1B695DA800A2AE12 /* CTDocumentCollectionViewCell.h */,
 				BACF573E1B695DA800A2AE12 /* CTDocumentCollectionViewCell.m */,
+				BA074FF61B6A4B6A00879B28 /* CTDocumentCollectionSectionHeaderViewCollectionReusableView.h */,
+				BA074FF71B6A4B6A00879B28 /* CTDocumentCollectionSectionHeaderViewCollectionReusableView.m */,
+				BA074FF81B6A4B6A00879B28 /* CTDocumentCollectionSectionHeaderViewCollectionReusableView.xib */,
+				BA07500D1B6A73DC00879B28 /* CTDocumentDetailViewController.h */,
+				BA07500E1B6A73DC00879B28 /* CTDocumentDetailViewController.m */,
 			);
 			name = "Document Collection";
 			sourceTree = "<group>";
@@ -345,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA074FFA1B6A4B6A00879B28 /* CTDocumentCollectionSectionHeaderViewCollectionReusableView.xib in Resources */,
 				BA31EC1F1B67EA08007DEC19 /* Main.storyboard in Resources */,
 				BA31EC241B67EA08007DEC19 /* LaunchScreen.xib in Resources */,
 				BACF573C1B69548600A2AE12 /* CTLoginInfoTextTableViewCell.xib in Resources */,
@@ -399,25 +413,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BACF57211B693D6A00A2AE12 /* CTDocuments.m in Sources */,
 				BACF57341B694F4400A2AE12 /* CTLoginFeildTableViewCell.m in Sources */,
-				BACF572A1B693D6A00A2AE12 /* CTSignedDocuments.m in Sources */,
+				BA0750091B6A51CA00879B28 /* CTOriginalDocuments.m in Sources */,
 				BACF57371B694F6100A2AE12 /* CTLoginInfoTextTableViewCell.m in Sources */,
+				BA0750061B6A51C900879B28 /* CTDraftDocuments.m in Sources */,
 				BA31EC161B67EA08007DEC19 /* AppDelegate.m in Sources */,
-				BACF571B1B693D6900A2AE12 /* CTOriginalDocuments.m in Sources */,
 				BACF57311B694EA800A2AE12 /* CTLoginViewController.m in Sources */,
 				BA31EC611B680DE6007DEC19 /* CTHTTPDocumentsSessionManager.m in Sources */,
-				BACF571E1B693D6A00A2AE12 /* CTDocumentFeed.m in Sources */,
 				BA31EC601B680DE6007DEC19 /* CTHTTPDocumentsSessionInteractor.m in Sources */,
 				BA31EC191B67EA08007DEC19 /* CodingTest.xcdatamodeld in Sources */,
-				BACF57271B693D6A00A2AE12 /* CTDraftDocuments.m in Sources */,
 				BACF57421B69CC5900A2AE12 /* CTLoginInputFeildsManager.m in Sources */,
 				BA31EC5F1B680DE6007DEC19 /* CTHTTPSessionInteractor.m in Sources */,
-				BACF57241B693D6A00A2AE12 /* CTDocument.m in Sources */,
+				BA0750031B6A51C900879B28 /* CTDocument.m in Sources */,
+				BA0750001B6A51C900879B28 /* CTDocuments.m in Sources */,
 				BA31EC641B681B1B007DEC19 /* NSData+stringConversion.m in Sources */,
 				BACF573A1B694F7C00A2AE12 /* CTLoginButtonTableViewCell.m in Sources */,
+				BA07500C1B6A51CA00879B28 /* CTSignedDocuments.m in Sources */,
+				BA074FF91B6A4B6A00879B28 /* CTDocumentCollectionSectionHeaderViewCollectionReusableView.m in Sources */,
 				BACF572E1B6941AF00A2AE12 /* CTDocumentCollectionViewController.m in Sources */,
 				BACF573F1B695DA800A2AE12 /* CTDocumentCollectionViewCell.m in Sources */,
+				BA074FFD1B6A51C900879B28 /* CTDocumentFeed.m in Sources */,
+				BA07500F1B6A73DC00879B28 /* CTDocumentDetailViewController.m in Sources */,
 				BA31EC131B67EA08007DEC19 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

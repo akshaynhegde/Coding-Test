@@ -38,7 +38,7 @@
                                                     <rect key="frame" x="5" y="5" width="37" height="21"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtt-cR-SId">
@@ -89,6 +89,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Eg-Nx-ZJB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1704" y="249"/>
+        </scene>
+        <!--Document Detail View Controller-->
+        <scene sceneID="ZGw-HN-AF7">
+            <objects>
+                <viewController storyboardIdentifier="CTDocumentDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="R7h-yW-bwX" customClass="CTDocumentDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xy2-mx-MTi"/>
+                        <viewControllerLayoutGuide type="bottom" id="lXy-Cu-WEE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Ig-rO-wXj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egk-YD-LCU" userLabel="Title Label">
+                                <rect key="frame" x="10" y="30" width="580" height="28"/>
+                                <color key="backgroundColor" red="0.090196078430000007" green="0.57254901960000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                <color key="textColor" red="0.92466545990000004" green="0.94065781500000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2Q-gM-kvd" userLabel="Details Label">
+                                <rect key="frame" x="10" y="76" width="44" height="25"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lXy-Cu-WEE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="c2Q-gM-kvd" secondAttribute="bottom" constant="10" id="52p-7P-uhb"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="c2Q-gM-kvd" secondAttribute="trailing" constant="10" id="AF3-y0-pFK"/>
+                            <constraint firstItem="c2Q-gM-kvd" firstAttribute="top" secondItem="egk-YD-LCU" secondAttribute="bottom" constant="18" id="AYf-au-yXs"/>
+                            <constraint firstItem="egk-YD-LCU" firstAttribute="top" secondItem="xy2-mx-MTi" secondAttribute="bottom" constant="10" id="Rb7-Jh-CEc"/>
+                            <constraint firstItem="egk-YD-LCU" firstAttribute="leading" secondItem="1Ig-rO-wXj" secondAttribute="leading" constant="10" id="lGI-0M-N08"/>
+                            <constraint firstItem="c2Q-gM-kvd" firstAttribute="leading" secondItem="egk-YD-LCU" secondAttribute="leading" id="wcY-7J-8Nu"/>
+                            <constraint firstAttribute="trailing" secondItem="egk-YD-LCU" secondAttribute="trailing" constant="10" id="yjE-J2-QYk"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="detailLabel" destination="c2Q-gM-kvd" id="Vfr-g7-14e"/>
+                        <outlet property="titleLabel" destination="egk-YD-LCU" id="kx8-Nu-3rb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xqV-40-MN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2367" y="253"/>
         </scene>
         <!--Login-->
         <scene sceneID="luO-Te-bHO">

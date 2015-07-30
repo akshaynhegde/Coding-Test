@@ -13,6 +13,7 @@
     </entity>
     <entity name="CTDocuments" representedClassName="CTDocuments" syncable="YES">
         <attribute name="count" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="displayTitle" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="feed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CTDocumentFeed" inverseName="documents" inverseEntity="CTDocumentFeed" syncable="YES"/>
         <relationship name="files" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CTDocument" inverseName="parentContainer" inverseEntity="CTDocument" syncable="YES"/>
     </entity>
@@ -22,7 +23,7 @@
     <elements>
         <element name="CTDocument" positionX="-10406" positionY="-9801" width="128" height="118"/>
         <element name="CTDocumentFeed" positionX="-10910" positionY="-9855" width="128" height="73"/>
-        <element name="CTDocuments" positionX="-10622" positionY="-9738" width="128" height="88"/>
+        <element name="CTDocuments" positionX="-10622" positionY="-9738" width="128" height="103"/>
         <element name="CTDraftDocuments" positionX="-10622" positionY="-9520" width="128" height="43"/>
         <element name="CTOriginalDocuments" positionX="-10451" positionY="-9565" width="128" height="43"/>
         <element name="CTSignedDocuments" positionX="-10809" positionY="-9556" width="128" height="43"/>
