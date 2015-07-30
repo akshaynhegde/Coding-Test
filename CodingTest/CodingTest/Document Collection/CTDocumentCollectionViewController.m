@@ -71,8 +71,6 @@
     [_documentSessionInteractor fetchDocumentsAndSaveToDBWithCompletion:^(NSURLSessionTask *task, id response) {
         
         [SVProgressHUD dismiss];
-//        NSError *fetchError = nil;
-//        [weakSelf.fetchResultsController performFetch:&fetchError];
         [weakSelf.collectionView reloadData];
         
     } failure:^(NSURLSessionTask *task, NSError *error) {
@@ -91,13 +89,14 @@
 - (void) setUpFetchresultsController
 {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([CTDocument class])];
-    fetchRequest.fetchBatchSize = 50;
+    fetchRequest.fetchBatchSize = 30;
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"parentContainer.displayTitle" ascending:NO],[NSSortDescriptor sortDescriptorWithKey:@"modifiedDate" ascending:NO]];
     
-    _fetchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[NSManagedObjectContext MR_defaultContext] sectionNameKeyPath:@"parentContainer.displayTitle" cacheName:@"CTDocumentsCollectionCache"];
+    _fetchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[NSManagedObjectContext MR_defaultContext] sectionNameKeyPath:@"parentContainer.displayTitle" cacheName:@"CodumentsCollectionCache"];
     _fetchResultsController.delegate = self;
     
     NSError *error = nil;
+    [NSFetchedResultsController deleteCacheWithName:@"CodumentsCollectionCache"];
     [_fetchResultsController performFetch:&error];
 }
 
