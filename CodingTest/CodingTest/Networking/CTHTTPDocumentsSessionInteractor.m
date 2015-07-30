@@ -80,32 +80,40 @@
 - (void) saveResponseToDB:(NSDictionary *) response withCompletion:(void(^)(void)) completion
 {
     __weak typeof(self) weakSelf = self;
-    NSBlockOperation *saveOp = [NSBlockOperation blockOperationWithBlock:^{
-       
+    
+    /**
+     *  Making all a separate operation so that saves wouldn't be too much if there are too many objects
+     */
+    
+    __block CTDocumentFeed *originalFeed = nil;
+    NSBlockOperation *prepareParseOp = [NSBlockOperation blockOperationWithBlock:^{
+        
         [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
-            
-            NSDictionary *draftsDict = [response objectForKey:kCTAPIKeyDraft];
-            NSDictionary *originalsDict = [response objectForKey:kCTAPIKeyOriginal];
-            NSDictionary *signedDict = [response objectForKey:kCTAPIKeySigned];
-           
             /**
              *  Delete the existing feed
              */
-            CTDocumentFeed *existingFeed = [CTDocumentFeed MR_findFirstInContext:localContext];
-            if (existingFeed) {
-                [existingFeed MR_deleteEntity];
-            }
+            [CTDocumentFeed MR_truncateAllInContext:localContext];
             
-            CTDocumentFeed *feed = [CTDocumentFeed MR_createEntityInContext:localContext];
-            feed.count = [response objectForKey:kCTAPIKeyCount];
+            originalFeed = [CTDocumentFeed MR_createEntityInContext:localContext];
+            originalFeed.count = [response objectForKey:kCTAPIKeyCount];
+        }];
+    }];
+    
+    /**
+     *  Saving Drafts
+     */
+    NSBlockOperation *draftsSaveOp = [NSBlockOperation blockOperationWithBlock:^{
+        
+        NSDictionary *draftsDict = [response objectForKey:kCTAPIKeyDraft];
+        NSArray *files = [draftsDict objectForKey:kCTAPIKeyFiles];
+        
+        [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
             
-            /**
-             *  Drafts
-             */
-            NSArray *files = [draftsDict objectForKey:kCTAPIKeyFiles];
-            
+            CTDocumentFeed *feed = [originalFeed MR_inContext:localContext];
+
             CTDraftDocuments *drafDocuments = [CTDraftDocuments MR_createEntityInContext:localContext];
             drafDocuments.count = [draftsDict objectForKey:kCTAPIKeyCount];
+            drafDocuments.displayTitle = @"Drafts";
             
             for (NSDictionary *aDocumentDict in files) {
                 CTDocument *aDocument = [weakSelf createDocumentEntityFromDict:aDocumentDict inContext:localContext];
@@ -113,14 +121,27 @@
             }
             
             [feed addDocumentsObject:drafDocuments];
-            
-            /**
-             *  Originals
-             */
-            files = [originalsDict objectForKey:kCTAPIKeyFiles];
+        }];
+    }];
+    
+    [draftsSaveOp addDependency:prepareParseOp];
+    
+    /**
+     *  Saving Originals
+     */
+    NSBlockOperation *origalsSaveOp = [NSBlockOperation blockOperationWithBlock:^{
+        
+        NSDictionary *originalsDict = [response objectForKey:kCTAPIKeyOriginal];
+        NSArray *files = [originalsDict objectForKey:kCTAPIKeyFiles];
+//        files = [weakSelf dummyDuplicates:files];
+        
+        [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+
+            CTDocumentFeed *feed = [originalFeed MR_inContext:localContext];
             
             CTOriginalDocuments *originalDocuments = [CTOriginalDocuments MR_createEntityInContext:localContext];
             originalDocuments.count = [originalsDict objectForKey:kCTAPIKeyCount];
+            originalDocuments.displayTitle = @"Originals";
             
             for (NSDictionary *aDocumentDict in files) {
                 CTDocument *aDocument = [weakSelf createDocumentEntityFromDict:aDocumentDict inContext:localContext];
@@ -129,35 +150,73 @@
             
             [feed addDocumentsObject:originalDocuments];
 
-            /**
-             *  Signed
-             */
-            files = [signedDict objectForKey:kCTAPIKeyFiles];
+        }];
+    }];
+    
+    [origalsSaveOp addDependency:prepareParseOp];
+    
+    /**
+     *  Saving Signed
+     */
+    NSBlockOperation *signedSaveOp = [NSBlockOperation blockOperationWithBlock:^{
+        
+        NSDictionary *signedDict = [response objectForKey:kCTAPIKeySigned];
+        NSArray *files = [signedDict objectForKey:kCTAPIKeyFiles];
+
+        [MagicalRecord saveWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+            
+            CTDocumentFeed *feed = [originalFeed MR_inContext:localContext];
             
             CTSignedDocuments *signedDocuments = [CTSignedDocuments MR_createEntityInContext:localContext];
             signedDocuments.count = [signedDict objectForKey:kCTAPIKeyCount];
+            signedDocuments.displayTitle = @"Signed";
             
             for (NSDictionary *aDocumentDict in files) {
                 CTDocument *aDocument = [weakSelf createDocumentEntityFromDict:aDocumentDict inContext:localContext];
-                [originalDocuments addFilesObject:aDocument];
+                [signedDocuments addFilesObject:aDocument];
             }
             
             [feed addDocumentsObject:signedDocuments];
-            
+
         }];
-        
     }];
     
-    [saveOp setCompletionBlock:^{
+    [signedSaveOp addDependency:prepareParseOp];
+    
+    NSBlockOperation *saveCompltionOp = [NSBlockOperation blockOperationWithBlock:^{
+        //just here to know when everything is finisehd
+    }];
+    [saveCompltionOp addDependency:prepareParseOp];
+    [saveCompltionOp addDependency:draftsSaveOp];
+    [saveCompltionOp addDependency:origalsSaveOp];
+    [saveCompltionOp addDependency:signedSaveOp];
+    
+    [saveCompltionOp setCompletionBlock:^{
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             if (completion) {
                 completion();
             }
         }];
     }];
-    
-    [_operationQueue addOperation:saveOp];
+
+    [_operationQueue addOperation:draftsSaveOp];
+    [_operationQueue addOperation:origalsSaveOp];
+    [_operationQueue addOperation:signedSaveOp];
+    [_operationQueue addOperation:prepareParseOp];
+    [_operationQueue addOperation:saveCompltionOp];
+
 }
+
+//- (NSArray *) dummyDuplicates:(NSArray *) files
+//{
+//    NSMutableArray *duplicates = [NSMutableArray arrayWithArray:files];
+//    for (NSDictionary *aFile in files) {
+//        for (NSInteger i = 0; i < 120; i++) {
+//            [duplicates addObject:[aFile copy]];
+//        }
+//    }
+//    return duplicates;
+//}
 
 - (CTDocument *) createDocumentEntityFromDict:(NSDictionary *) dict inContext:(NSManagedObjectContext *) context
 {
